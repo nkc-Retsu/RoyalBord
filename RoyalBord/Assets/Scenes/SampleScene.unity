@@ -564,7 +564,7 @@ GameObject:
   - component: {fileID: 152734242}
   - component: {fileID: 152734241}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: NameBoxBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 199057572}
   - component: {fileID: 199057571}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: NameBoxRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
