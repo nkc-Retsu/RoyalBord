@@ -10,13 +10,14 @@ namespace Inputer
     {
         // î•ñ‚ğæ“¾‚µ‚Ä‘—‚éˆ—
 
+        [SerializeField] GameObject manager;
         // ƒNƒ‰ƒX•Ï”
         private IReceiveData receiveData;
 
         // Start is called before the first frame update
         void Start()
         {
-            receiveData = GetComponent<IReceiveData>();
+            receiveData = manager.GetComponent<IReceiveData>();
         }
 
         // Update is called once per frame
