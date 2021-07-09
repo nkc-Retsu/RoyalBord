@@ -25,6 +25,7 @@ namespace Inputer
 
         }
 
+
         public void Send(GameObject select1, GameObject select2)
         {
             receiveData.ReceiveData(select1, select2);

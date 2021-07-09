@@ -22,7 +22,8 @@ namespace Inputer
         // Start is called before the first frame update
         void Start()
         {
-            holdObj = GetComponent<HoldObj>();
+            holdObj  = GetComponent<HoldObj>();
+            sendData = GetComponent<SendData>();
         }
 
         // Update is called once per frame
@@ -62,7 +63,7 @@ namespace Inputer
                 }
 
                 // –¼‘O‚ð•\Ž¦
-                Debug.Log("–¼‘O " + clickedObj);
+                Debug.Log("select2 " + clickedObj);
             }
 
 
