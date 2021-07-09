@@ -85,7 +85,7 @@ namespace Inputer
                     clickedObj = hit2d.transform.gameObject;
 
                     // 2回目の選択を可能にする
-                    handSelectFlg = true;
+                    HandSelectFlg = true;
                 }
 
                 // 名前を表示
