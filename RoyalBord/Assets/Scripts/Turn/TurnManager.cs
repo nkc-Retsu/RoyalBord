@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnManager : MonoBehaviour
+namespace Turn
 {
-    // Start is called before the first frame update
-    void Start()
+    public class TurnManager : MonoBehaviour,ITurnChange
     {
-        
-    }
+        private bool playerTurn = false;
+        void Start()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+
+        void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Return))
+            {
+                TurnChange();
+            }
+        }
+
+        public void TurnChange()
+        {
+
+        }
     }
 }
