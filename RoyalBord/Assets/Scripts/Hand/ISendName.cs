@@ -1,4 +1,4 @@
-namespace Bridge
+namespace Hand
 {
     // 手札の名前情報を送るインターフェース
 
