@@ -1,4 +1,4 @@
-using Bridge;
+using Hand;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +9,8 @@ namespace Inputer
     {
         // 左クリックで手札情報を取得する処理
 
+
+        // オブジェクト取得用変数
         private GameObject clickedObj;
 
 
@@ -26,25 +28,39 @@ namespace Inputer
         }
 
 
+
+        // 手札を左クリックした時に情報を取得する処理
         private void Click()
         {
-
-            if (Input.GetMouseButtonDown(0))
+            if (ClickLeft())
             {
+                // クリックしたオブジェクトを取得する変数
                 clickedObj = null;
+                HandPiece obj = null;
 
+                // クリックでオブジェクトを取得
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
 
+                // オブジェクトを取得した時
                 if (hit2d)
                 {
+                    // クリックしたオブジェクトのクラスを取得
                     clickedObj = hit2d.transform.gameObject;
+                    obj = clickedObj.GetComponent<HandPiece>();
                 }
-                Debug.Log(clickedObj);
+
+                // 名前を表示
+                Debug.Log("名前 " + obj.SendName());
             }
 
-            var obj = clickedObj.gameObject.GetComponent<ISendName>();
-            Debug.Log(obj.SendName());
+            
+        }
+
+        // 左クリック処理
+        private bool ClickLeft()
+        {
+            return Input.GetMouseButtonDown(0);
         }
     }
 
