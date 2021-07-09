@@ -1,17 +1,32 @@
-using Hand;
+using Bridge;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Inputer
 {
-    public class HoldObj : MonoBehaviour
+    public class HoldObj : MonoBehaviour, ICanInput
     {
         // 左クリックで手札情報を取得する処理
 
 
         // オブジェクト取得用変数
         private GameObject clickedObj;
+
+        // 手札を選んだ時にフィールド
+        private bool handSelectFlg = false;
+
+        public bool HandSelectFlg
+        {
+            get
+            {
+                return handSelectFlg;
+            }
+            set
+            {
+                handSelectFlg = value;
+            }
+        }
 
 
 
@@ -24,19 +39,26 @@ namespace Inputer
         // Update is called once per frame
         void Update()
         {
-            Click();
+            SelectObj();
+        }
+
+
+
+        // 入力可能かどうか判定する処理
+        public bool CanInput(bool flg)
+        {
+            return flg;
         }
 
 
 
         // 手札を左クリックした時に情報を取得する処理
-        private void Click()
+        private void SelectObj()
         {
             if (ClickLeft())
             {
                 // クリックしたオブジェクトを取得する変数
                 clickedObj = null;
-                HandPiece obj = null;
 
                 // クリックでオブジェクトを取得
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -47,11 +69,13 @@ namespace Inputer
                 {
                     // クリックしたオブジェクトのクラスを取得
                     clickedObj = hit2d.transform.gameObject;
-                    obj = clickedObj.GetComponent<HandPiece>();
+
+                    // 2回目の選択を可能にする
+                    handSelectFlg = true;
                 }
 
                 // 名前を表示
-                Debug.Log("名前 " + obj.SendName());
+                Debug.Log("名前 " + clickedObj);
             }
 
             
@@ -62,6 +86,7 @@ namespace Inputer
         {
             return Input.GetMouseButtonDown(0);
         }
+
     }
 
 }
