@@ -17,12 +17,12 @@ namespace Field
             NUM
         }
 
-        // 駒オブジェクト
-        [SerializeField] GameObject king;
-        [SerializeField] GameObject knight;
-        [SerializeField] GameObject shield;
-        [SerializeField] GameObject archer;
-        [SerializeField] GameObject wall;
+        //// 駒オブジェクト
+        //[SerializeField] GameObject king;
+        //[SerializeField] GameObject knight;
+        //[SerializeField] GameObject shield;
+        //[SerializeField] GameObject archer;
+        //[SerializeField] GameObject wall;
 
         // フィールド配列
         [SerializeField] private int[,] fieldArr = new int[5,5] { { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0 } };
