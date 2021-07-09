@@ -16,10 +16,10 @@ MonoBehaviour:
     AppIdRealtime: PhotonTest
     AppIdChat: 
     AppIdVoice: 
-    AppVersion: 1
+    AppVersion: 
     UseNameServer: 1
-    FixedRegion: jp
-    Server: 172.18.86.119
+    FixedRegion: 
+    Server: 
     Port: 0
     Protocol: 0
     EnableLobbyStatistics: 0
