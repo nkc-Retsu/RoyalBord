@@ -1,4 +1,4 @@
-namespace Turn
+namespace Bridge
 {
     interface ITurnChange
     {
