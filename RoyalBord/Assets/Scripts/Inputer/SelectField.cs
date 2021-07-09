@@ -13,8 +13,10 @@ namespace Inputer
         // オブジェクト取得用変数
         private GameObject clickedObj;
 
+
         // クラス変数
         private HoldObj holdObj;
+        private SendData sendData;
 
 
         // Start is called before the first frame update
@@ -55,6 +57,8 @@ namespace Inputer
 
                     // 2回目の選択を可能にする
                     holdObj.HandSelectFlg = false;
+
+                    sendData.Send(holdObj.ClickObj, clickedObj);
                 }
 
                 // 名前を表示
