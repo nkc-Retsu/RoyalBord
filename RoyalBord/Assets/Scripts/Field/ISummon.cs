@@ -1,7 +1,9 @@
-namespace Field
+using UnityEngine;
+
+namespace Bridge
 {
     interface ISummon
     {
-        void Summon(int x,int y,int num);
+        void Summon(GameObject piece, Vector2 pos);
     }
 }

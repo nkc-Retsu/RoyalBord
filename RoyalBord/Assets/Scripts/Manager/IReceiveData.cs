@@ -1,9 +1,11 @@
- namespace Manager
+using UnityEngine;
+ 
+namespace Bridge
 {
 
     interface IReceiveData
     {
-        void ReceiveData();
+        void ReceiveData(GameObject selectObj1, GameObject selectObj2);
     }
 
 }
