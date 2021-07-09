@@ -13,6 +13,18 @@ namespace Inputer
         // オブジェクト取得用変数
         private GameObject clickedObj;
 
+        public GameObject ClickObj
+        {
+            get
+            {
+                return clickedObj;
+            }
+            set
+            {
+                clickedObj = value;
+            }
+        }
+
         // 手札を選んだ時にフィールド
         private bool handSelectFlg = false;
 

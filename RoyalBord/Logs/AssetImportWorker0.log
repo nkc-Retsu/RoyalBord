@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/user/Desktop/RoyalBord/RoyalBord
+C:/Users/user/Documents/RoyalBord/RoyalBord
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54007
-Successfully changed project path to: C:/Users/user/Desktop/RoyalBord/RoyalBord
-C:/Users/user/Desktop/RoyalBord/RoyalBord
+53795
+Successfully changed project path to: C:/Users/user/Documents/RoyalBord/RoyalBord
+C:/Users/user/Documents/RoyalBord/RoyalBord
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 62.29 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 56.47 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.12f1 (b3b2c6512326)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/user/Desktop/RoyalBord/RoyalBord/Assets
+[Subsystems] Discovering subsystems at path C:/Users/user/Documents/RoyalBord/RoyalBord/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -35,37 +35,37 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56804
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56028
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002026 seconds.
+Registered in 0.001972 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 53.67 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 52.44 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.179 seconds
+- Completed reload, in  1.159 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006876 seconds.
+Registered in 0.007177 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 52.35 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 54.52 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.441 seconds
+- Completed reload, in  1.411 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2470 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 106.4 MB.
-System memory in use after: 106.6 MB.
+System memory in use before: 109.3 MB.
+System memory in use after: 109.3 MB.
 
-Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 2907.
-Total: 3.572600 ms (FindLiveObjects: 0.280600 ms CreateObjectMapping: 0.130100 ms MarkObjects: 3.020400 ms  DeleteObjects: 0.140000 ms)
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2902.
+Total: 2.856400 ms (FindLiveObjects: 0.300600 ms CreateObjectMapping: 0.142300 ms MarkObjects: 2.237700 ms  DeleteObjects: 0.174500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -79,53 +79,78 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Photon/PhotonUnityNetworking/UtilityScripts/PhotonUnityNetworking.Utilities.asmdef
-  artifactKey: Guid(a738238285a7a8246af046cbf977522f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Photon/PhotonUnityNetworking/UtilityScripts/PhotonUnityNetworking.Utilities.asmdef using Guid(a738238285a7a8246af046cbf977522f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4615f99c06d747d1ccde67e4d3d275de') in 0.046903 seconds 
-  Import took 0.051480 seconds .
+  path: Assets/Scripts/Turn/ITurnChange.cs
+  artifactKey: Guid(15f9b8a06954c0043a8090dc802c6242) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Turn/ITurnChange.cs using Guid(15f9b8a06954c0043a8090dc802c6242) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dbfd1455c040441b179b2a0abc999a3') in 0.040062 seconds 
+  Import took 0.046026 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000211 seconds.
-  path: Assets/Photon/PhotonUnityNetworking/UtilityScripts/UI
-  artifactKey: Guid(665e986f9b37c294d96c166a76e618d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Photon/PhotonUnityNetworking/UtilityScripts/UI using Guid(665e986f9b37c294d96c166a76e618d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be9f343a4b8e04245886deb7102b78c2') in 0.007388 seconds 
-  Import took 0.011360 seconds .
+  Time since last request: 0.000320 seconds.
+  path: Assets/Scripts/Turn/TurnManager.cs
+  artifactKey: Guid(4aff735f6669fcd4a9c30bf1a17ac316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Turn/TurnManager.cs using Guid(4aff735f6669fcd4a9c30bf1a17ac316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2530f0e61abc1e579793a7c13b2f108f') in 0.007144 seconds 
+  Import took 0.011253 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.029457 seconds.
-  path: Assets/Photon/PhotonUnityNetworking/Resources
-  artifactKey: Guid(948d2c791ec5fa340af2b13fa6f7cb83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Photon/PhotonUnityNetworking/Resources using Guid(948d2c791ec5fa340af2b13fa6f7cb83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '164fe2d742e698ebf72028fec46d3f59') in 0.010746 seconds 
-  Import took 0.024098 seconds .
+  Time since last request: 16.369329 seconds.
+  path: Assets/Photon/PhotonUnityNetworking
+  artifactKey: Guid(d2b6672cc770a19438ff06fcb2637630) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking using Guid(d2b6672cc770a19438ff06fcb2637630) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35ede24a24719380ddefcdd67530cfbd') in 0.009781 seconds 
+  Import took 0.015236 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.468931 seconds.
+  Time since last request: 3.934740 seconds.
   path: Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
   artifactKey: Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73fc170d1b15a5f17033f8195db39f5a') in 0.015337 seconds 
-  Import took 0.019446 seconds .
+Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0fddf59eb17b4d2bbd5329913550438') in 0.024826 seconds 
+  Import took 0.031139 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.005238 seconds.
+  Time since last request: 0.021275 seconds.
   path: Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
   artifactKey: Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73fc170d1b15a5f17033f8195db39f5a') in 0.004063 seconds 
-  Import took 0.009766 seconds .
+Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0fddf59eb17b4d2bbd5329913550438') in 0.004572 seconds 
+  Import took 0.010388 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.014205 seconds.
+  path: Assets/Scripts/Inputer/SendData.cs
+  artifactKey: Guid(86b449ef497907940bf62609e4223865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Inputer/SendData.cs using Guid(86b449ef497907940bf62609e4223865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bd57e1d856a089bc16df68d4b4e035a') in 0.003141 seconds 
+  Import took 0.007519 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001558 seconds.
+  path: Assets/Scripts/Inputer/SendData.cs
+  artifactKey: Guid(86b449ef497907940bf62609e4223865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Inputer/SendData.cs using Guid(86b449ef497907940bf62609e4223865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bd57e1d856a089bc16df68d4b4e035a') in 0.003592 seconds 
+  Import took 0.009432 seconds .
 
 ========================================================================
 Received Prepare
-Refreshing native plugins compatible for Editor in 5.46 ms, found 3 plugins.
+Registering precompiled user dll's ...
+Registered in 0.007095 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 21 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 57.5 MB.
-System memory in use after: 57.7 MB.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.245 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.67 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2464 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 109.3 MB.
+System memory in use after: 109.3 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2907.
-Total: 3.239000 ms (FindLiveObjects: 0.284200 ms CreateObjectMapping: 0.127300 ms MarkObjects: 2.804900 ms  DeleteObjects: 0.021600 ms)
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 2906.
+Total: 2.974900 ms (FindLiveObjects: 0.351500 ms CreateObjectMapping: 0.138000 ms MarkObjects: 2.324000 ms  DeleteObjects: 0.159900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -139,10 +164,10 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 35.844463 seconds.
-  path: Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
-  artifactKey: Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0fddf59eb17b4d2bbd5329913550438') in 0.004176 seconds 
-  Import took 0.008818 seconds .
+  Time since last request: 707.448701 seconds.
+  path: Assets/Scripts/Inputer/SendData.cs
+  artifactKey: Guid(86b449ef497907940bf62609e4223865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Inputer/SendData.cs using Guid(86b449ef497907940bf62609e4223865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '948fd3b9cf1bd4ba5bd57a78b2e73a2f') in 0.006464 seconds 
+  Import took 0.010812 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
