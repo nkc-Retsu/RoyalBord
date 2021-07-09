@@ -12,7 +12,6 @@ namespace Inputer
 
         // オブジェクト取得用変数
         private GameObject clickedObj;
-
         public GameObject ClickObj
         {
             get
@@ -25,9 +24,9 @@ namespace Inputer
             }
         }
 
+
         // 手札を選んだ時にフィールド
         private bool handSelectFlg = false;
-
         public bool HandSelectFlg
         {
             get
@@ -51,7 +50,10 @@ namespace Inputer
         // Update is called once per frame
         void Update()
         {
-            SelectObj();
+            if (!handSelectFlg)
+            {
+                SelectObj();
+            }
         }
 
 
@@ -87,7 +89,7 @@ namespace Inputer
                 }
 
                 // 名前を表示
-                Debug.Log("名前 " + clickedObj);
+                Debug.Log("select1 " + clickedObj);
             }
 
             
