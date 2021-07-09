@@ -22,7 +22,7 @@ namespace Manager
         public void ReceiveData(GameObject selectObj1, GameObject selectObj2)
         {
             Vector2 pos = Vector2.zero;
-            //pos = selectObj2.GetComponent<IGetPos>();
+            pos = selectObj2.GetComponent<IGetPos>().GetPos();
             iSummon.Summon(selectObj1, pos);
         }
     }
