@@ -1,6 +1,6 @@
 namespace Bridge
 {
-    interface IGetHP
+    interface IGetAttackArea
     {
 
     }
