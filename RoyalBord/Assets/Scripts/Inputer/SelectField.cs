@@ -22,9 +22,11 @@ namespace Inputer
         // Start is called before the first frame update
         void Start()
         {
-            holdObj  = GetComponent<HoldObj>();
+            // コンポーネント取得
+            holdObj = GetComponent<HoldObj>();
             sendData = GetComponent<SendData>();
         }
+
 
         // Update is called once per frame
         void Update()
@@ -56,15 +58,16 @@ namespace Inputer
                     // クリックしたオブジェクトのクラスを取得
                     clickedObj = hit2d.transform.gameObject;
 
+                    // 名前を表示
+                    Debug.Log("select2 " + clickedObj);
+
+                    // 1回目の選択を可能にする
+                    holdObj.HandSelectFlg = false;
+
                     // 選択したオブジェクトの情報を送る
                     sendData.Send(holdObj.ClickObj, clickedObj);
-                    
-                    // 2回目の選択を可能にする
-                    holdObj.HandSelectFlg = false;
                 }
-
-                // 名前を表示
-                Debug.Log("select2 " + clickedObj);
+               
             }
 
 
@@ -74,7 +77,7 @@ namespace Inputer
         private bool ClickLeft()
         {
             return Input.GetMouseButtonDown(0);
-        } 
+        }
     }
 
 }
