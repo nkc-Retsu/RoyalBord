@@ -26,7 +26,7 @@ public class InstructionController : MonoBehaviour
 
         nowPos = this.transform.position;
 
-        if (nowPos.x == -24)
+        if (nowPos.x <= -13)
         {
             RightKey.SetActive(false);
         }
@@ -35,7 +35,7 @@ public class InstructionController : MonoBehaviour
             RightKey.SetActive(true);
         }
 
-        if (nowPos.x == 24)
+        if (nowPos.x >= 13)
         {
             LeftKey.SetActive(false);
         }
