@@ -1,0 +1,7 @@
+namespace Bridge
+{
+    interface IGetHP
+    {
+
+    }
+}

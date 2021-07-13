@@ -24,6 +24,9 @@ namespace Inputer
             }
         }
 
+        // 入力可能Flg
+        bool inputFlg = true;
+
 
         // 手札を選んだ時にフィールド
         private bool handSelectFlg = false;
@@ -50,6 +53,10 @@ namespace Inputer
         // Update is called once per frame
         void Update()
         {
+            // 自分のターン以外は入力不可
+            if (!inputFlg) return;
+
+            // 1回目の入力がされていない時
             if (!handSelectFlg)
             {
                 SelectObj();
@@ -58,10 +65,10 @@ namespace Inputer
 
 
 
-        // 入力可能かどうか判定する処理
+        // 入力可能かどうか判定するインターフェース
         public bool CanInput(bool flg)
         {
-            return flg;
+            return inputFlg = flg ;
         }
 
 
@@ -85,11 +92,12 @@ namespace Inputer
                     clickedObj = hit2d.transform.gameObject;
 
                     // 2回目の選択を可能にする
-                    handSelectFlg = true;
-                }
+                    HandSelectFlg = true;
 
-                // 名前を表示
-                Debug.Log("select1 " + clickedObj);
+                    // 名前を表示
+                    Debug.Log("select1 " + clickedObj);
+
+                }
             }
 
             

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RightKey
   - LeftKey
+  - Field
   layers:
   - Default
   - TransparentFX
