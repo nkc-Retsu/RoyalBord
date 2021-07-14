@@ -5,43 +5,69 @@ using DG.Tweening;
 
 public class InstructionController : MonoBehaviour
 {
-    private float nowPos = 24;
+    private float nowPosX = 24;
+    private bool RightCheck;
+    private bool LeftCheck;
+    [SerializeField] private GameObject LeftKey;
+    [SerializeField] private GameObject RightKey;
+    private Vector3 nowPos;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        nowPos = this.transform.position;
+
+        if (nowPos.x <= -13)
+        {
+            RightKey.SetActive(false);
+        }
+        else
+        {
+            RightKey.SetActive(true);
+        }
+
+        if (nowPos.x >= 13)
+        {
+            LeftKey.SetActive(false);
+        }
+        else
+        {
+            LeftKey.SetActive(true);
+        }
     }
 
     public void SlideRight()
     {
-        nowPos += 12;
+        nowPosX += 12;
 
-        if(nowPos >= 24)
+        if(nowPosX >= 24)
         {
-            nowPos = 24;
+            nowPosX = 24;
         }
 
-        this.transform.DOMoveX(nowPos, 0.5f);
+        this.transform.DOMoveX(nowPosX, 0.5f);
 
     }
 
     public void SlideLeft()
     {
-        nowPos -= 12;
+        nowPosX -= 12;
 
-        if (nowPos <= -24)
+        if (nowPosX <= -24)
         {
-            nowPos = -24;
+            nowPosX = -24;
         }
 
-        this.transform.DOMoveX(nowPos, 0.5f);
+        this.transform.DOMoveX(nowPosX, 0.5f);
 
     }
 
