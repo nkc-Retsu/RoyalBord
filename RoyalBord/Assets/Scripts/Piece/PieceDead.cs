@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PieceDead : MonoBehaviour
+namespace Piece
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PieceDead : MonoBehaviour
     {
-        
+        private PieceCore pieceCore;
+
+        private void Start()
+        {
+            pieceCore = GetComponent<PieceCore>();
+        }
+
+        private void Update()
+        {
+            Dead();
+        }
+
+        private void Dead()
+        {
+            if (pieceCore.HP <= 0)
+            {
+                Debug.Log(gameObject + "‚ªŽ€‚ñ‚¾!!!");
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

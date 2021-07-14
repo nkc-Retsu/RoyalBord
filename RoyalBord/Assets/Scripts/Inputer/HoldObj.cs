@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Inputer
 {
-    public class HoldObj : MonoBehaviour, ICanInput
+    public class HoldObj : MonoBehaviour
     {
         // 左クリックで手札情報を取得する処理
 
@@ -24,23 +24,6 @@ namespace Inputer
             }
         }
 
-        // 入力可能Flg
-        bool inputFlg = true;
-
-
-        // 手札を選んだ時にフィールド
-        private bool handSelectFlg = false;
-        public bool HandSelectFlg
-        {
-            get
-            {
-                return handSelectFlg;
-            }
-            set
-            {
-                handSelectFlg = value;
-            }
-        }
 
 
 
@@ -53,55 +36,35 @@ namespace Inputer
         // Update is called once per frame
         void Update()
         {
-            // 自分のターン以外は入力不可
-            if (!inputFlg) return;
 
-            // 1回目の入力がされていない時
-            if (!handSelectFlg)
-            {
-                SelectObj();
-            }
         }
-
-
-
-        // 入力可能かどうか判定するインターフェース
-        public bool CanInput(bool flg)
-        {
-            return inputFlg = flg ;
-        }
-
 
 
         // 手札を左クリックした時に情報を取得する処理
-        private void SelectObj()
+        public void SelectObj()
         {
-            if (ClickLeft())
+            // クリックしたオブジェクトを取得する変数
+            clickedObj = null;
+
+            // クリックでオブジェクトを取得
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+
+
+            // オブジェクトを取得した時
+            if (hit2d)
             {
-                // クリックしたオブジェクトを取得する変数
-                clickedObj = null;
+                // クリックしたオブジェクトのクラスを取得
+                clickedObj = hit2d.transform.gameObject;
 
-                // クリックでオブジェクトを取得
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit2d = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
+                // 何も取得していない時 + Fieldを選択したら早期リターン
+                if (ClickObj == null || clickedObj.gameObject.tag == "Field") return;
 
-                // オブジェクトを取得した時
-                if (hit2d)
-                {
-                    // クリックしたオブジェクトのクラスを取得
-                    clickedObj = hit2d.transform.gameObject;
-
-                    // 2回目の選択を可能にする
-                    HandSelectFlg = true;
-
-                    // 名前を表示
-                    Debug.Log("select1 " + clickedObj);
-
-                }
+                // 名前を表示
+                Debug.Log("select1 " + clickedObj);
             }
-
-            
         }
+
 
         // 左クリック処理
         private bool ClickLeft()
@@ -112,3 +75,5 @@ namespace Inputer
     }
 
 }
+
+
