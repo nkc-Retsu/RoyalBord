@@ -11,6 +11,7 @@ namespace Inputer
         // î•ñ‚ğæ“¾‚µ‚Ä‘—‚éˆ—
 
         [SerializeField] GameObject manager;
+
         // ƒNƒ‰ƒX•Ï”
         private IReceiveData receiveData;
 
