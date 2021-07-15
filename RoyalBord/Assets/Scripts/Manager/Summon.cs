@@ -6,10 +6,21 @@ using Bridge;
 
 public class Summon : MonoBehaviour
 {
+    enum PIECE
+    {
+        KING,
+        KNIGHT,
+        SHIELD,
+        ARCHER,
+        WALL,
+        NUM
+    }
+
     private ISummon iSummon;
 
     private float[] posArrX = new float[] { -3.33f, -1.66f, 0f, 1.66f, 3.33f };
     private float[] posArrY = new float[] { -3.83f, -2.16f, -0.5f, 1.16f, 2.83f };
+
 
 
     private void Start()
