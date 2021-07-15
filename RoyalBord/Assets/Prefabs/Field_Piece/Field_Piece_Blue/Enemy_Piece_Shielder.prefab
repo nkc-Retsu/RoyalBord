@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 941755331240208962}
   - component: {fileID: 941755331240208963}
   - component: {fileID: 941755331240208960}
+  - component: {fileID: -7378646790956695133}
+  - component: {fileID: 3293843372034309123}
   m_Layer: 0
   m_Name: Enemy_Piece_Shielder
   m_TagString: EnemyPiece
@@ -169,5 +171,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0913923e0d7086643b43211a14a5ae66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7378646790956695133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941755331240208966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e52b87767e4d44e98eb2210afbb648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3293843372034309123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941755331240208966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c3b5ff16fee3b498d513c0326fed10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

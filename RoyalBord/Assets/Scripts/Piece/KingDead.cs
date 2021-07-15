@@ -6,25 +6,21 @@ namespace Piece
 {
     public class KingDead : MonoBehaviour
     {
-        private PieceCore pieceCore;
+        // キングが死んだとき処理
 
         private void Start()
         {
-            pieceCore = GetComponent<PieceCore>();
         }
 
         private void Update()
         {
-            Dead();
         }
 
-        private void Dead()
+
+        // 死んだとき処理
+        public void Dead()
         {
-            if(pieceCore.HP <= 0)
-            {
-                Debug.Log("キング死す");
-                Debug.Log("お前の負け!!!!");
-            }
+            Debug.Log("キング死す");
         }
     }
 }

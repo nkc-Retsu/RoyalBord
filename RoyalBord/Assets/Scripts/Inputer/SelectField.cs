@@ -1,4 +1,5 @@
 using Bridge;
+using Piece;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ namespace Inputer
     public class SelectField : MonoBehaviour, ICanInput
     {
         // フィールド情報を取得する処理
+
+        [SerializeField] private GameObject arrowObj_Default;
+        [SerializeField] private GameObject arrowObj_King;
 
 
         // オブジェクト取得用変数
@@ -31,9 +35,10 @@ namespace Inputer
 
 
         // フラグ
-        private bool inputFlg = false;  // 入力受付用フラグ 
+        private bool inputFlg = false; // 入力受付用フラグ 
         private bool selecrFlg = false; // 選択可能フラグ
 
+        private GameObject pieceChild;
 
         // 入力受付インターフェースを実装
         public bool CanInput(bool flg)
@@ -63,6 +68,7 @@ namespace Inputer
         }
 
 
+
         // クリック処理
         private void InputClick()
         {
@@ -71,17 +77,34 @@ namespace Inputer
             {
                 if (ClickLeft())
                 {
+
                     // キャラ選択 or フィールド選択
                     SelectObj();
+
+                    if (holdObj.ClickObj.gameObject.tag == "PlayerPiece")
+                    {
+                        if (ClickObj.gameObject.tag == "Field" || ClickObj.gameObject.tag == "EnemyPiece")
+                        {
+                            // 矢印のオブジェクトを取得
+                            pieceChild = holdObj.ClickObj.transform.GetChild(0).gameObject;
+
+                            // 矢印の表示を消す
+                            pieceChild.gameObject.SetActive(false);
+
+                        }
+                    }
 
                     // 何も取得していない時は早期リターン
                     if (clickedObj == null)
                     {
                         return;
-                    } 
+                    }
                     // 同じ駒を選択した場合は選択解除
-                    else if(clickedObj == holdObj.ClickObj)
+                    else if (clickedObj == holdObj.ClickObj)
                     {
+                        // 矢印の表示を消す
+                        pieceChild.gameObject.SetActive(false);
+
                         // 取得したオブジェクトの中身を空にする
                         clickedObj = null;
                         holdObj.ClickObj = null;
@@ -108,6 +131,14 @@ namespace Inputer
 
                     // 何も取得していない時 + Fieldを選択したら早期リターン
                     if (holdObj.ClickObj == null || holdObj.ClickObj.gameObject.tag == "Field") return;
+                    else if (holdObj.ClickObj.gameObject.tag == "PlayerPiece")
+                    {
+                        // 矢印のオブジェクトを取得
+                        pieceChild = holdObj.ClickObj.transform.GetChild(0).gameObject;
+
+                        // 矢印の表示
+                        pieceChild.gameObject.SetActive(true);
+                    }
 
                     // フラグを変更
                     selecrFlg = true;
@@ -149,10 +180,15 @@ namespace Inputer
             return Input.GetMouseButtonDown(0);
         }
 
+
     }
 
 
 
 }
+
+
+
+
 
 
