@@ -4,16 +4,22 @@ using UnityEngine;
 using Bridge;
 using DG.Tweening;
 
+
 public class Move : MonoBehaviour
 {
     private IMove iMove;
+
+    [SerializeField] private GameObject turnManager;
+    private ITurnChange iTurnChange;
+
 
     private float[] posArrX = new float[] { -3.33f, -1.66f, 0f, 1.66f, 3.33f };
     private float[] posArrY = new float[] { -3.83f, -2.16f, -0.5f, 1.16f, 2.83f };
 
     void Start()
     {
-        iMove = GetComponent<IMove>();
+        //iMove = GetComponent<IMove>();
+        iTurnChange = turnManager.GetComponent<ITurnChange>();
     }
 
     public void MoveAction(GameObject selectObj1,GameObject selectObj2)
@@ -26,6 +32,8 @@ public class Move : MonoBehaviour
         selectObj1.GetComponent<ISetPos>().SetPos(afterPos);
 
         //iMove.Move(beforePos, afterPos);
+
+        iTurnChange.TurnChange();
     }
 
 }
