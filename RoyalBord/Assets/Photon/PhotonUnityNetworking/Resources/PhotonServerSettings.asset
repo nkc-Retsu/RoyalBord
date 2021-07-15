@@ -18,8 +18,8 @@ MonoBehaviour:
     AppIdVoice: 
     AppVersion: 1
     UseNameServer: 0
-    FixedRegion: jp
-    Server: 172.18.86.119
+    FixedRegion: 
+    Server: 192.168.0.6
     Port: 5055
     Protocol: 0
     EnableLobbyStatistics: 0
@@ -34,7 +34,10 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - AttackBridge
   - GameStart
-  - NameDisplay
+  - MoveBridge
+  - SummonBridge
+  - TurnChangeRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 1

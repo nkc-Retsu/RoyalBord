@@ -4,6 +4,7 @@ using UnityEngine;
 using Turn;
 using Bridge;
 
+
 public class Summon : MonoBehaviour
 {
     enum PIECE
@@ -17,6 +18,8 @@ public class Summon : MonoBehaviour
     }
 
     private ISummon iSummon;
+    [SerializeField] private GameObject turnManager;
+    private ITurnChange iTurnChange;
 
     private float[] posArrX = new float[] { -3.33f, -1.66f, 0f, 1.66f, 3.33f };
     private float[] posArrY = new float[] { -3.83f, -2.16f, -0.5f, 1.16f, 2.83f };
@@ -27,6 +30,7 @@ public class Summon : MonoBehaviour
     private void Start()
     {
         //iSummon = GetComponent<ISummon>();
+        iTurnChange = turnManager.GetComponent<ITurnChange>();
     }
 
     public void SummonAction(GameObject selectObj1,GameObject selectObj2)
@@ -49,6 +53,30 @@ public class Summon : MonoBehaviour
             summonObj.transform.position = new Vector3(posArrX[(int)pos.x], posArrY[(int)pos.y],-1);
             summonObj.GetComponent<ISetPos>().SetPos(pos);
         }
+
+        //iSummon.Summon(selectObj1,pos);
+    }
+
+    public void SummonAction(int pieceType, GameObject selectObj2)
+    {
+        Debug.Log("è¢ä´");
+
+        Vector2 pos = selectObj2.GetComponent<IGetPos>().GetPos();
+
+        if (TurnManager.playerTurn)
+        {
+            GameObject summonObj = Instantiate(redPieceArr[pieceType]);
+            summonObj.transform.position = new Vector3(posArrX[(int)pos.x], posArrY[(int)pos.y], -1);
+            summonObj.GetComponent<ISetPos>().SetPos(pos);
+        }
+        else
+        {
+            GameObject summonObj = Instantiate(bluePieceArr[pieceType]);
+            summonObj.transform.position = new Vector3(posArrX[(int)pos.x], posArrY[(int)pos.y], -1);
+            summonObj.GetComponent<ISetPos>().SetPos(pos);
+        }
+
+        iTurnChange.TurnChange();
 
         //iSummon.Summon(selectObj1,pos);
     }
