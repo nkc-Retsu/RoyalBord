@@ -19,4 +19,15 @@ public class FieldTile : MonoBehaviour,IGetPos
     {
         return pos;
     }
+
+    private void OnMouseEnter()
+    {
+        sr.color = new Color32(255, 255, 255, 150);
+    }
+
+    private void OnMouseExit()
+    {
+        sr.color = new Color32(0, 0, 0, 0);
+    }
+
 }

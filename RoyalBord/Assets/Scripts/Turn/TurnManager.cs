@@ -7,7 +7,14 @@ namespace Turn
 {
     public class TurnManager : MonoBehaviour,ITurnChange
     {
-        private bool playerTurn = false;
+        enum STATE
+        {
+            PLACEMENT,
+            GAME,
+        }
+
+        public static bool playerTurn=false;
+        private int stateNum = 0;
         void Start()
         {
 
@@ -15,15 +22,12 @@ namespace Turn
 
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Return))
-            {
-                TurnChange();
-            }
+            
         }
 
         public void TurnChange()
         {
-
+            playerTurn = (playerTurn) ? false : true;
         }
     }
 }
