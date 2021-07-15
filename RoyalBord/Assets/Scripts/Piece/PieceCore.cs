@@ -87,12 +87,14 @@ namespace Piece
                 {
                     kingDead.Dead();
                     GameSetManager.loseCount = 3;
+                    GameSet();
                     Debug.Log("ライフ" + GameSetManager.loseCount);
                 }
                 else 
                 {
                     pieceDead.Dead();
                     GameSetManager.loseCount++;
+                    GameSet();
                     Debug.Log("ライフ" + GameSetManager.loseCount);
                 }               
 
