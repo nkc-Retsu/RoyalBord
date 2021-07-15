@@ -20,12 +20,22 @@ namespace Turn
 
         void Start()
         {
+            if(Matching.hostFlg)
+            {
+                playerTurn = Matching.playerTurn;
+                if(!playerTurn)
+                {
+                    photonView.RPC(nameof(TurnChangeRPC), RpcTarget.Others);
+                }
+            }
 
+            Debug.Log(playerTurn);
         }
 
         void Update()
         {
-            TestInputer();
+            //TestInputer();
+            Debug.Log(playerTurn);
         }
 
 
