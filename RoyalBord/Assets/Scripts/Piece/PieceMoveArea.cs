@@ -8,11 +8,23 @@ namespace Piece
     {
         // 十字移動
         int[,] moveAreaDefault = new int[,] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-        public int[,] MoveAreaDefault{ get; set; }
+        public int[,] MoveAreaDefault
+        {
+            get
+            {
+                return moveAreaDefault;
+            }
+        }
 
         // 全マス移動
-        int[,] moveAreaKing = new int[,] { { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, 1 }, { -1, 1 }, { -1, 0 }, { -1, 1 } };
-        public int[,] MoveAreaKing { get; set; }
+        int[,] moveAreaKing = new int[,] { { 1,0 }, { 1, 1 }, { 0, 1 }, { -1, 1 }, { -1, 0 }, { -1, -1 }, { 0, -1 }, { 1, -1 } };
+        public int[,] MoveAreaKing
+        {
+            get
+            {
+                return moveAreaKing;
+            }
+        }
     }
 
 }

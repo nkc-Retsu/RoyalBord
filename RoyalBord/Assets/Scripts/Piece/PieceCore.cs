@@ -5,7 +5,7 @@ using Bridge;
 
 namespace Piece
 {
-    public class PieceCore : MonoBehaviour, IShowArea, IGetAttackArea, IGetMoveArea, IGetHP, IDecreaseHP, IGetPos
+    public class PieceCore : MonoBehaviour, IShowArea, IGetAttackArea, IGetMoveArea, IGetHP, IDecreaseHP, IGetPos,IGetType,ISetPos
     {
         // ãÓÇÃäÓñ{èàóù
 
@@ -34,12 +34,15 @@ namespace Piece
 
         private Vector2 piecePos = new Vector2(0f,0f) ;
 
+        private int pieceType;
+
         private void Start()
         {
             pieceAttackArea = GetComponent<PieceAttackArea>();
             pieceMoveArea   = GetComponent<PieceMoveArea>();
 
             hp = pieceStatus.hp;
+            this.pieceType = pieceStatus.pieceType;
         }
         private void Update()
         {
@@ -115,6 +118,16 @@ namespace Piece
         public Vector2 GetPos()
         {
             return piecePos;
+        }
+
+        int IGetType.GetType()
+        {
+            return pieceType;
+        }
+
+        public void SetPos(Vector2 pos)
+        {
+            piecePos = pos;
         }
     }
 
