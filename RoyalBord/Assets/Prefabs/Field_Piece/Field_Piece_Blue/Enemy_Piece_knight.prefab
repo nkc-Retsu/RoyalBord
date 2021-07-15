@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6041992905543635280}
   - component: {fileID: 6041992905543635281}
   - component: {fileID: 6041992905543635282}
+  - component: {fileID: -1970003159300294695}
+  - component: {fileID: 632781517778396924}
   m_Layer: 0
   m_Name: Enemy_Piece_knight
   m_TagString: EnemyPiece
@@ -169,5 +171,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0913923e0d7086643b43211a14a5ae66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1970003159300294695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041992905543635292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e52b87767e4d44e98eb2210afbb648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &632781517778396924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041992905543635292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c3b5ff16fee3b498d513c0326fed10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
