@@ -67,7 +67,7 @@ namespace Inputer
         private void InputClick()
         {
             // 選択可能フラグがtrueの時 (2回目)
-            if (selecrFlg && holdObj.ClickObj.gameObject.tag == "Piece")
+            if (selecrFlg && holdObj.ClickObj.gameObject.tag == "HandPiece" || selecrFlg && holdObj.ClickObj.gameObject.tag == "PlayerPiece")
             {
                 if (ClickLeft())
                 {
