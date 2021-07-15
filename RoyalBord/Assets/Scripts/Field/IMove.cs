@@ -1,8 +1,10 @@
+using UnityEngine;
+
 namespace Bridge
 {
     interface IMove
     {
-        void Move(int before_x, int before_y, int after_x, int after_y, int num);
+        void Move(Vector2 beforePos, Vector2 AfterPos);
     }
 
 }

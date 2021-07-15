@@ -8,12 +8,19 @@ namespace Manager
     public class SortAction : MonoBehaviour,IReceiveData
     {
         [SerializeField] GameObject field;
-        private IMove iMove;
-        private ISummon iSummon;
+
+        private Summon summon;
+        private Attack attack;
+        private Move move;
+        private ActionFailed actionFailed;
+
+        private IGetAttackArea iGetAttackArea;
+        private IGetMoveArea iGetMoveArea;
+
+        int fieldData;
+
         void Start()
         {
-            iMove = field.GetComponent<IMove>();
-            iSummon = field.GetComponent<ISummon>();
         }
 
         void Update()
@@ -23,9 +30,54 @@ namespace Manager
 
         public void ReceiveData(GameObject selectObj1, GameObject selectObj2)
         {
-            Vector2 pos = Vector2.zero;
-            pos = selectObj2.GetComponent<IGetPos>().GetPos();
-            iSummon.Summon(selectObj1, pos);
+            if(selectObj1.tag=="EnemyPiece")
+            return;
+
+            Vector2 pos1 = selectObj1.GetComponent<IGetPos>().GetPos();
+            Vector2 pos2 = selectObj2.GetComponent<IGetPos>().GetPos();
+
+            if (selectObj1.tag == "HandPiece" && selectObj2.tag == "Field")
+            {
+                summon.SummonAction(selectObj1, selectObj2);
+            }
+
+
+            if(selectObj1.tag=="PlayerPiece")
+                if (selectObj2.tag == "Field")
+                {
+                    // 移動範囲チェック
+                    int[,] moveAreaArr = new int[,] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
+                    //int[,] moveAreaArr = selectObj1.GetComponent<iGetMoveArea>().GetMoveArea();
+
+                    if(AreaCheck(moveAreaArr,pos1,pos2))
+                    {
+                        move.MoveAction(selectObj1, selectObj2);
+                    }
+                }
+                else if (selectObj2.tag == "EnemyPiece")
+                {
+                    // 攻撃範囲チェック
+                    int[,] attackAreaArr = new int[,] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
+                    //int[,] attackAreaArr = selectObj1.GetComponent<iGetAttackArea>().GetAttackArea();
+
+                    if (AreaCheck(attackAreaArr, pos1, pos2))
+                    {
+                        attack.AttackAction(selectObj1, selectObj2);
+                    }
+                }
         }
+
+        private bool AreaCheck(int[,] arr,Vector2 pos1,Vector2 pos2)
+        {
+            for (int i = 0; i < arr.GetLength(0); ++i)
+            {
+                if (pos1.x - arr[i, 0] == pos2.x && pos1.y - arr[i, 1] == pos2.y)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

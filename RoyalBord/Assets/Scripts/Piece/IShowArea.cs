@@ -1,7 +1,0 @@
-namespace Bridge
-{
-    interface IGetHP
-    {
-
-    }
-}

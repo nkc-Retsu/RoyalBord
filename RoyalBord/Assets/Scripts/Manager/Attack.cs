@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bridge;
+using Piece;
 
 public class Attack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private IAttack iAttack;
+    private IDecreaseHP iDecreaseHP;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AttackAction(GameObject selectObj1,GameObject selectObj2)
     {
-        
+        Debug.Log("çUåÇ");
+
+        iDecreaseHP.DecreaseHP(1);
+        // if(éÄÇÒÇæÇÁ)
+        Vector2 pos = selectObj2.GetComponent<IGetPos>().GetPos();
+        //iAttack.Attack(pos);
     }
 }

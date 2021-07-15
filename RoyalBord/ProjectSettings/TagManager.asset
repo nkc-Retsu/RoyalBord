@@ -7,6 +7,10 @@ TagManager:
   - RightKey
   - LeftKey
   - Field
+  - Piece
+  - EnemyPiece
+  - PlayerPiece
+  - HandPiece
   layers:
   - Default
   - TransparentFX
