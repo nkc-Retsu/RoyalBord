@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b689ff597e977c041a320c3073dd99f8, type: 3}
   m_Name: Shielder_Status
   m_EditorClassIdentifier: 
+  pieceType: 2
   hp: 2
-  attackArea: {x: 0, y: 0}
-  moveArea: {x: 0, y: 0}
+  attackArea: 1
+  moveArea: 1

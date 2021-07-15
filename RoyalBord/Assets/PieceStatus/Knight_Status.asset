@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b689ff597e977c041a320c3073dd99f8, type: 3}
   m_Name: Knight_Status
   m_EditorClassIdentifier: 
+  pieceType: 1
   hp: 1
-  attackArea: {x: 0, y: 0}
-  moveArea: {x: 0, y: 0}
+  attackArea: 3
+  moveArea: 1
