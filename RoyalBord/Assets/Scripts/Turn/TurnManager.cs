@@ -16,11 +16,9 @@ namespace Turn
         public static bool playerTurn = false;
         private int turnNum = 0;
 
-         private STATE state;
-
         void Start()
         {
-            state = GetComponent<STATE>(); 
+
         }
 
         void Update()
@@ -39,24 +37,27 @@ namespace Turn
         {
             if(turnNum == 0)
             {
-                state = STATE.PLACEMENT;
+                
             }
             else if(turnNum % 2 == 1)
             {
-                Debug.Log("ゲーム開始");
-                Debug.Log("先行ターン");
                 TurnChange();
             }
             else if(turnNum % 2 == 0)
             {
-                Debug.Log("後攻ターン");
                 TurnChange();
             }
         }
 
         private void TestInputer()
         {
-            if (Input.GetKeyDown(KeyCode.Return)) turnNum++;
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                turnNum++;
+                StateChange();
+
+                Debug.Log("playerTurn=" + playerTurn);
+            }
         }
 
 

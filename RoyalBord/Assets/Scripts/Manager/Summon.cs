@@ -39,14 +39,15 @@ public class Summon : MonoBehaviour
         {
             int pieceType = selectObj1.GetComponent<IGetType>().GetType();
             GameObject summonObj = Instantiate(redPieceArr[pieceType]);
-            summonObj.transform.position=new Vector2(posArrX[(int)pos.x], posArrY[(int)pos.y]);
+            summonObj.transform.position=new Vector3(posArrX[(int)pos.x], posArrY[(int)pos.y],-1);
             summonObj.GetComponent<ISetPos>().SetPos(pos);
         }
         else
         {
             int pieceType = selectObj1.GetComponent<IGetType>().GetType();
             GameObject summonObj = Instantiate(bluePieceArr[pieceType]);
-            summonObj.transform.position = new Vector2(posArrX[(int)pos.x], posArrY[(int)pos.y]);
+            summonObj.transform.position = new Vector3(posArrX[(int)pos.x], posArrY[(int)pos.y],-1);
+            summonObj.GetComponent<ISetPos>().SetPos(pos);
         }
 
         //iSummon.Summon(selectObj1,pos);

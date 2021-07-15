@@ -49,25 +49,22 @@ namespace Manager
             {
                 if (selectObj2.tag == "Field")
                 {
-                    Debug.Log("pos1=" + pos1);
-                    Debug.Log("pos2=" + pos2);
-
                     // 移動範囲チェック
                     int[,] moveAreaArr = selectObj1.GetComponent<IGetMoveArea>().GetMoveArea();
                     if (AreaCheck(moveAreaArr, pos1, pos2))
                     {
-                        Debug.Log("2");
-
                         move.MoveAction(selectObj1, selectObj2);
                     }
                 }
                 else if (selectObj2.tag == "EnemyPiece")
                 {
+                    Debug.Log("1");
                     // 攻撃範囲チェック
                     int[,] attackAreaArr = selectObj1.GetComponent<IGetAttackArea>().GetAttackArea();
-
+                    Debug.Log(attackAreaArr);
                     if (AreaCheck(attackAreaArr, pos1, pos2))
                     {
+                        Debug.Log("2");
                         attack.AttackAction(selectObj1, selectObj2);
                     }
                 }
