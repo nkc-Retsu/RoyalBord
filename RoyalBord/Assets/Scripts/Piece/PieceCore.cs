@@ -5,13 +5,17 @@ using Bridge;
 
 namespace Piece
 {
-    public class PieceCore : MonoBehaviour, IShowArea, IGetAttackArea, IGetMoveArea, IGetHP, IDecreaseHP
+    public class PieceCore : MonoBehaviour, IShowArea, IGetAttackArea, IGetMoveArea, IGetHP, IDecreaseHP, IGetPos
     {
         // 駒の基本処理
 
 
         // ScriptableObject用変数
         [SerializeField] private PieceStatus pieceStatus;
+
+        // クラス変数
+        private PieceAttackArea pieceAttackArea;
+        private PieceMoveArea   pieceMoveArea;
 
         // 変更用HP変数
         private int hp;
@@ -28,12 +32,15 @@ namespace Piece
             }
         }
 
+        private Vector2 piecePos = new Vector2(0f,0f) ;
 
         private void Start()
         {
+            pieceAttackArea = GetComponent<PieceAttackArea>();
+            pieceMoveArea   = GetComponent<PieceMoveArea>();
+
             hp = pieceStatus.hp;
         }
-
         private void Update()
         {
         }
@@ -43,9 +50,15 @@ namespace Piece
         //HP処理
 
         //  HPを減らすインターフェース
-        public int DecreaseHP(int dec)
+        public bool DecreaseHP()
         {
-            return this.hp -= dec;
+            hp--;
+            if (hp <= 0)
+            {
+                Debug.Log("死ぬメソッド呼び出し");
+                return true;
+            }
+            return false;
         }
         // HPを返すインターフェース
         public int GetHP()
@@ -59,21 +72,49 @@ namespace Piece
         // 範囲処理
 
         // 攻撃範囲インターフェース
-        public Vector2 GetAttackArea()
+        public int[,] GetAttackArea()
         {
-            return pieceStatus.attackArea;
+            switch (pieceStatus.attackArea)
+            {
+                case 1:
+                    return pieceAttackArea.AttackAreaDefault;
+
+                case 2:
+                    return pieceAttackArea.AttackAreaArcher;
+
+                case 3:
+                    return pieceAttackArea.AttackAreaKnight;
+                default:
+                    return null;
+            }
         }
 
         // 移動範囲インターフェース
-        public Vector2 GetMoveArea()
+        public int[,] GetMoveArea()
         {
-            return pieceStatus.moveArea;
+            switch (pieceStatus.moveArea)
+            {
+                case 1:
+                    return pieceMoveArea.MoveAreaDefault;
+
+                case 2:
+                    return pieceMoveArea.MoveAreaKing;
+
+                default:
+                    return null;
+            }
         }
 
+
         // 移動範囲インターフェース(Inputerに渡す用)
-        public Vector2 ShowArea()
+        public int[,] ShowArea()
         {
-            return pieceStatus.moveArea;
+            return null;
+        }
+
+        public Vector2 GetPos()
+        {
+            return piecePos;
         }
     }
 
