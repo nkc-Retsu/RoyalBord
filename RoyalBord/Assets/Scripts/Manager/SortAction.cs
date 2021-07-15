@@ -46,8 +46,7 @@ namespace Manager
                 if (selectObj2.tag == "Field")
                 {
                     // 移動範囲チェック
-                    int[,] moveAreaArr = new int[,] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-                    //int[,] moveAreaArr = selectObj1.GetComponent<iGetMoveArea>().GetMoveArea();
+                    int[,] moveAreaArr = selectObj1.GetComponent<IGetMoveArea>().GetMoveArea();
 
                     if(AreaCheck(moveAreaArr,pos1,pos2))
                     {
@@ -57,8 +56,7 @@ namespace Manager
                 else if (selectObj2.tag == "EnemyPiece")
                 {
                     // 攻撃範囲チェック
-                    int[,] attackAreaArr = new int[,] { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-                    //int[,] attackAreaArr = selectObj1.GetComponent<iGetAttackArea>().GetAttackArea();
+                    int[,] attackAreaArr = selectObj1.GetComponent<IGetAttackArea>().GetAttackArea();
 
                     if (AreaCheck(attackAreaArr, pos1, pos2))
                     {

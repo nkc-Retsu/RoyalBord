@@ -17,7 +17,7 @@ public class Attack : MonoBehaviour
     {
         Debug.Log("çUåÇ");
 
-        iDecreaseHP.DecreaseHP(1);
+        iDecreaseHP.DecreaseHP();
         // if(éÄÇÒÇæÇÁ)
         Vector2 pos = selectObj2.GetComponent<IGetPos>().GetPos();
         //iAttack.Attack(pos);
