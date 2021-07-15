@@ -1,7 +1,9 @@
+using UnityEngine;
+
 namespace Bridge
 {
     interface IAttack
     {
-        void Attack(int x,int y);
+        void Attack(Vector2 pos);
     }
 }
