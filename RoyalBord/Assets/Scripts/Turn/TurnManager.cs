@@ -13,7 +13,7 @@ namespace Turn
             GAME,
         }
 
-        public static bool playerTurn=false;
+        public static bool playerTurn=true;
         private int stateNum = 0;
         void Start()
         {

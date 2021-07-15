@@ -21,11 +21,12 @@ public class Summon : MonoBehaviour
     private float[] posArrX = new float[] { -3.33f, -1.66f, 0f, 1.66f, 3.33f };
     private float[] posArrY = new float[] { -3.83f, -2.16f, -0.5f, 1.16f, 2.83f };
 
-
+    [SerializeField] private GameObject[] redPieceArr;
+    [SerializeField] private GameObject[] bluePieceArr;
 
     private void Start()
     {
-        iSummon = GetComponent<ISummon>();
+        //iSummon = GetComponent<ISummon>();
     }
 
     public void SummonAction(GameObject selectObj1,GameObject selectObj2)
@@ -36,11 +37,16 @@ public class Summon : MonoBehaviour
 
         if(TurnManager.playerTurn)
         {
-            //instantiate(Ž©‹î)
+            int pieceType = selectObj1.GetComponent<IGetType>().GetType();
+            GameObject summonObj = Instantiate(redPieceArr[pieceType]);
+            summonObj.transform.position=new Vector2(posArrX[(int)pos.x], posArrY[(int)pos.y]);
+            summonObj.GetComponent<ISetPos>().SetPos(pos);
         }
         else
         {
-            //instantiate(“G‹î)
+            int pieceType = selectObj1.GetComponent<IGetType>().GetType();
+            GameObject summonObj = Instantiate(bluePieceArr[pieceType]);
+            summonObj.transform.position = new Vector2(posArrX[(int)pos.x], posArrY[(int)pos.y]);
         }
 
         //iSummon.Summon(selectObj1,pos);

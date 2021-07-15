@@ -23,6 +23,7 @@ public class Move : MonoBehaviour
         Vector2 beforePos = selectObj2.GetComponent<IGetPos>().GetPos();
         Vector2 afterPos = selectObj2.GetComponent<IGetPos>().GetPos();
         selectObj1.transform.DOMove(new Vector3(posArrX[(int)afterPos.x], posArrY[(int)afterPos.y], 0), 0.5f);
+        selectObj1.GetComponent<ISetPos>().SetPos(afterPos);
 
         //iMove.Move(beforePos, afterPos);
     }

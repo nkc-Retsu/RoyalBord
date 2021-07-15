@@ -21,6 +21,9 @@ namespace Manager
 
         void Start()
         {
+            summon = GetComponent<Summon>();
+            attack = GetComponent<Attack>();
+            move = GetComponent<Move>();
         }
 
         void Update()
@@ -42,14 +45,19 @@ namespace Manager
             }
 
 
-            if(selectObj1.tag=="PlayerPiece")
+            if (selectObj1.tag == "PlayerPiece")
+            {
                 if (selectObj2.tag == "Field")
                 {
+                    Debug.Log("pos1=" + pos1);
+                    Debug.Log("pos2=" + pos2);
+
                     // 移動範囲チェック
                     int[,] moveAreaArr = selectObj1.GetComponent<IGetMoveArea>().GetMoveArea();
-
-                    if(AreaCheck(moveAreaArr,pos1,pos2))
+                    if (AreaCheck(moveAreaArr, pos1, pos2))
                     {
+                        Debug.Log("2");
+
                         move.MoveAction(selectObj1, selectObj2);
                     }
                 }
@@ -63,13 +71,14 @@ namespace Manager
                         attack.AttackAction(selectObj1, selectObj2);
                     }
                 }
+            }
         }
 
         private bool AreaCheck(int[,] arr,Vector2 pos1,Vector2 pos2)
         {
             for (int i = 0; i < arr.GetLength(0); ++i)
             {
-                if (pos1.x - arr[i, 0] == pos2.x && pos1.y - arr[i, 1] == pos2.y)
+                if (pos1.x + arr[i, 0] == pos2.x && pos1.y + arr[i, 1] == pos2.y)
                 {
                     return true;
                 }
