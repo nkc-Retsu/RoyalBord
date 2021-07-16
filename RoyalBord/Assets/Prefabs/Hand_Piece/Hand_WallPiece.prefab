@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceStatus: {fileID: 11400000, guid: c35b303a79fec9c49842ffdffe679139, type: 2}
+  handWall: {fileID: 7304110242690726181, guid: 2202e45a2ab2ded4d8908e2e1d93b859, type: 3}
 --- !u!114 &440730370579195128
 MonoBehaviour:
   m_ObjectHideFlags: 0
