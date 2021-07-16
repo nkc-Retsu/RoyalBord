@@ -202,6 +202,10 @@ PrefabInstance:
       propertyPath: nextSceneName
       value: SampleScene
       objectReference: {fileID: 0}
+    - target: {fileID: 8774110585997114912, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
+      propertyPath: nextIsAnotherBGMScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8774110585997114915, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
       propertyPath: m_Name
       value: FadeCloud_toCredit
@@ -324,6 +328,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8774110585997114912, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
+      propertyPath: nextIsAnotherBGMScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8774110585997114915, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
       propertyPath: m_Name
       value: FadeCloud_toButtle
@@ -849,6 +857,10 @@ PrefabInstance:
       propertyPath: nextSceneName
       value: Scene1
       objectReference: {fileID: 0}
+    - target: {fileID: 8774110585997114912, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
+      propertyPath: nextIsAnotherBGMScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8774110585997114915, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
       propertyPath: m_Name
       value: FadeCloud_toScene1
@@ -1260,7 +1272,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 16437bd85f9baaa41a5ba341707d5e66, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

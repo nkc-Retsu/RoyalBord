@@ -10,15 +10,20 @@ public class Fade : MonoBehaviour
     [SerializeField] string nextSceneName;
     [Header("フェード時間")]
     [SerializeField] float fadeTime;
+    [Header("次のシーンでBGMが変わるならチェックを入れる")]
+    [SerializeField] bool nextIsAnotherBGMScene = true;
 
     float startPosX =  30; //初期位置
     float stopPosX  =  -8; //停止位置
     float EndPosX   = -41; //最終位置
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         transform.position = new Vector3(startPosX, 0, 0); //初期位置設定
         StartCoroutine("FadeCoroutine");
+
+        BGM.fadeStartFlg = nextIsAnotherBGMScene;//BGMのフェード開始
     }
 
     IEnumerator FadeCoroutine()
