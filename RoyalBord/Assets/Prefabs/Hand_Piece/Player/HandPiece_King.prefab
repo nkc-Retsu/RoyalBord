@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4261247716476300123}
   - component: {fileID: 4261247716476300120}
   - component: {fileID: 4261247716476300121}
+  - component: {fileID: -6789987345899698890}
   m_Layer: 0
   m_Name: HandPiece_King
   m_TagString: HandPiece
@@ -171,3 +172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0913923e0d7086643b43211a14a5ae66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6789987345899698890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261247716476300127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7792118d0ea4004f9772563a2813c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 

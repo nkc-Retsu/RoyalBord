@@ -32,6 +32,7 @@ namespace Inputer
         private HoldObj holdObj;
         private GameObject pieceChild;
         private HandPieceCore handPieceCore;
+        private GameObject MousehandPiece;
 
 
         // 選択可能フラグ
@@ -44,14 +45,13 @@ namespace Inputer
             // コンポーネント取得
             sendData = GetComponent<SendData>();
             holdObj = GetComponent<HoldObj>();
-            handPieceCore = GetComponent<HandPieceCore>();
         }
 
         // Update is called once per frame
         void Update()
         {
             // 入力受付
-            if (TurnManager.playerTurn) return;
+            if (!TurnManager.playerTurn) return;
 
             // メソッド呼び出し
             InputClick();
@@ -75,6 +75,11 @@ namespace Inputer
                     {
                         if (ClickObj.gameObject.tag == "Field" || ClickObj.gameObject.tag == "EnemyPiece")
                         {
+                            if (ClickObj.gameObject.tag == "Field")
+                            {
+                                // 手札を召喚したら手札のオブジェクトが消滅
+                                handPieceCore.LostHand(false);
+                            }
                             // 矢印のオブジェクトを取得
                             pieceChild = holdObj.ClickObj.transform.GetChild(0).gameObject;
 
@@ -92,6 +97,8 @@ namespace Inputer
                     // 同じ駒を選択した場合は選択解除
                     else if (clickedObj == holdObj.ClickObj)
                     {
+                        if (clickedObj.gameObject.tag == "HandPiece") return;
+
                         // 矢印の表示を消す
                         pieceChild.gameObject.SetActive(false);
 
@@ -129,8 +136,11 @@ namespace Inputer
                         // 矢印の表示
                         pieceChild.gameObject.SetActive(true);
                     }
-
-                    //handPieceCore.LostHand(false);
+                    else if (holdObj.gameObject.tag == "HandPiece")
+                    {
+                        handPieceCore = holdObj.GetComponent<HandPieceCore>();
+                        MousehandPiece = holdObj.ClickObj; 
+                    }
 
                     // フラグを変更
                     selecrFlg = true;

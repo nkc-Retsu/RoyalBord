@@ -2826,8 +2826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed4a74550f9e6043a3b5373d9bd61e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowObj_Default: {fileID: 0}
-  arrowObj_King: {fileID: 0}
 --- !u!114 &1143145860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2884,6 +2882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aff735f6669fcd4a9c30bf1a17ac316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yourTurnUI: {fileID: 7790338619601803991, guid: 1b5c515611cea9447b8f6517543fd963, type: 3}
 --- !u!4 &1257223358
 Transform:
   m_ObjectHideFlags: 0
