@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: b41bafb344a603b46a15eae1f0742391
-  - enabled: 1
-    path: Assets/Scenes/FadeTest.unity
-    guid: 3c446b49897c1324b8a2309ce096f004
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Scene1.unity
     guid: f2d513a1d3500f3488d48ad2f88dd7c1
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GodoTest.unity
     guid: a7a1cfec6a69a7546b0bbafba52d0719
+  - enabled: 1
+    path: Assets/Scenes/Credit.unity
+    guid: 9a866bdebdda4f849ad7ae42464e77ce
   m_configObjects: {}
