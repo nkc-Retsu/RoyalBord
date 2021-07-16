@@ -51,7 +51,7 @@ namespace Inputer
         void Update()
         {
             // 入力受付
-            if (TurnManager.playerTurn) return;
+            if (!TurnManager.playerTurn) return;
 
             // メソッド呼び出し
             InputClick();

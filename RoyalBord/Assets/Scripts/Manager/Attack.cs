@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Bridge;
+using Turn;
 
 
 public class Attack : MonoBehaviour
@@ -17,7 +18,7 @@ public class Attack : MonoBehaviour
         iTurnChange = turnManager.GetComponent<ITurnChange>();
     }
 
-    public void AttackAction(GameObject selectObj1,GameObject selectObj2)
+    public void AttackAction(GameObject selectObj1, GameObject selectObj2)
     {
         Debug.Log("çUåÇ");
 
@@ -26,6 +27,9 @@ public class Attack : MonoBehaviour
         Vector2 pos = selectObj2.GetComponent<IGetPos>().GetPos();
         //iAttack.Attack(pos);
 
-        iTurnChange.TurnChange();
+        if (TurnManager.playerTurn)
+        {
+            iTurnChange.TurnChange();
+        }
     }
 }

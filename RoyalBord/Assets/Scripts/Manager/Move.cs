@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Bridge;
 using DG.Tweening;
+using Turn;
 
 
 public class Move : MonoBehaviour
@@ -32,8 +33,10 @@ public class Move : MonoBehaviour
         selectObj1.GetComponent<ISetPos>().SetPos(afterPos);
 
         //iMove.Move(beforePos, afterPos);
-
-        iTurnChange.TurnChange();
+        if (TurnManager.playerTurn)
+        {
+            iTurnChange.TurnChange();
+        }
     }
 
 }
