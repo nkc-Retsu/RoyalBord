@@ -13,6 +13,8 @@ public class Matching : MonoBehaviourPunCallbacks
 
     public static string playerName;
     public static string enemyName;
+    public static bool hostFlg;
+    public static bool playerTurn = false;
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings(); // PhotonÇ∆ê⁄ë±
@@ -39,14 +41,12 @@ public class Matching : MonoBehaviourPunCallbacks
         //PhotonNetwork.PhotonServerSettings.AppSettings.Server = ip.text;
 
         PhotonNetwork.NickName = playerName_text.text;
-        //PhotonNetwork.PlayerList[0]=
         PhotonNetwork.CreateRoom(roomID_txt.text);
     }
 
     public void Join()
     {
         PhotonNetwork.NickName = playerName_text.text;
-
         PhotonNetwork.JoinRoom(roomID_txt.text);
     }
 
@@ -79,6 +79,13 @@ public class Matching : MonoBehaviourPunCallbacks
     {
         Debug.Log("ÉãÅ[ÉÄéQâ¡");
 
+        if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            hostFlg = true;
+            int randNum = Random.Range(0, 100);
+            playerTurn = (randNum % 2 == 0) ? true : false;
+
+        }
         if(PhotonNetwork.CurrentRoom.PlayerCount==2)
         {
             photonView.RPC(nameof(GameStart), RpcTarget.All);
