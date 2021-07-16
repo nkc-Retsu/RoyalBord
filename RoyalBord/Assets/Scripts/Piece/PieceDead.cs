@@ -21,6 +21,8 @@ namespace Piece
         public void Dead()
         {
             Debug.Log(gameObject + "が死んだ!!!");
+            // フェードで消える
+            // 手札の壁を生成する
         }
     }
 }
