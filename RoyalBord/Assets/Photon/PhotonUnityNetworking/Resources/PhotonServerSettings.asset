@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
   AppSettings:
-    AppIdRealtime: PhotonTest
+    AppIdRealtime: 
     AppIdChat: 
     AppIdVoice: 
     AppVersion: 
-    UseNameServer: 1
+    UseNameServer: 0
     FixedRegion: 
     Server: 192.168.10.103
     Port: 0

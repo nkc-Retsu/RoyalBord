@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -2399704807506453988}
   - component: {fileID: 8552458221333087967}
   m_Layer: 0
-  m_Name: 'Field_WallPiece '
-  m_TagString: PlayerPiece
+  m_Name: Field_WallPiece_Player
+  m_TagString: PlayerWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceStatus: {fileID: 11400000, guid: c35b303a79fec9c49842ffdffe679139, type: 2}
-  handWall: {fileID: 0}
 --- !u!114 &2745478144004501750
 MonoBehaviour:
   m_ObjectHideFlags: 0

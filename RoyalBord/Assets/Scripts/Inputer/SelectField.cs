@@ -75,11 +75,6 @@ namespace Inputer
                     {
                         if (ClickObj.gameObject.tag == "Field" || ClickObj.gameObject.tag == "EnemyPiece")
                         {
-                            if (ClickObj.gameObject.tag == "Field")
-                            {
-                                // 手札を召喚したら手札のオブジェクトが消滅
-                                //handPieceCore.LostHand(false);
-                            }
                             // 矢印のオブジェクトを取得
                             pieceChild = holdObj.ClickObj.transform.GetChild(0).gameObject;
 
@@ -138,8 +133,8 @@ namespace Inputer
                     }
                     else if (holdObj.gameObject.tag == "HandPiece")
                     {
-                        handPieceCore = holdObj.GetComponent<HandPieceCore>();
-                        MousehandPiece = holdObj.ClickObj; 
+                        //handPieceCore = holdObj.GetComponent<HandPieceCore>();
+                        //MousehandPiece = holdObj.ClickObj; 
                     }
 
                     // フラグを変更
