@@ -27,10 +27,16 @@ public class Summon : MonoBehaviour
     [SerializeField] private GameObject[] redPieceArr;
     [SerializeField] private GameObject[] bluePieceArr;
 
+    private int startSummonCount;
     private void Start()
     {
         //iSummon = GetComponent<ISummon>();
         iTurnChange = turnManager.GetComponent<ITurnChange>();
+
+        startSummonCount = 0;
+
+        Instantiate(redPieceArr[0]).transform.position= new Vector3(posArrX[0], posArrY[0], -1);
+        Instantiate(bluePieceArr[0]).transform.position= new Vector3(posArrX[4], posArrY[4], -1);
     }
 
     public void SummonAction(GameObject selectObj1,GameObject selectObj2)
@@ -55,6 +61,23 @@ public class Summon : MonoBehaviour
         }
 
         //iSummon.Summon(selectObj1,pos);
+
+        if (TurnManager.turnCount == 0 || TurnManager.turnCount == 1)
+        {
+            if (TurnManager.playerTurn)
+            {
+                startSummonCount++;
+            }
+
+            if (startSummonCount < 3)
+            {
+                return;
+            }
+
+        }
+        Debug.Log("ok");
+        iTurnChange.TurnChange();
+
     }
 
     public void SummonAction(int pieceType, GameObject selectObj2)
@@ -76,7 +99,21 @@ public class Summon : MonoBehaviour
             summonObj.GetComponent<ISetPos>().SetPos(pos);
         }
 
-        iTurnChange.TurnChange();
+        //if(TurnManager.turnCount==0 || TurnManager.turnCount == 1)
+        //{
+        //    if (TurnManager.playerTurn)
+        //    {
+        //        startSummonCount++;
+        //    }
+
+        //    if (startSummonCount < 3)
+        //    {
+        //        return;
+        //    }
+
+        //}
+        //Debug.Log("ok");
+        //iTurnChange.TurnChange();
 
         //iSummon.Summon(selectObj1,pos);
     }
