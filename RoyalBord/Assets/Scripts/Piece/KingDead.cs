@@ -21,6 +21,7 @@ namespace Piece
         public void Dead()
         {
             Debug.Log("キング死す");
+            // フェードで消える
         }
     }
 }

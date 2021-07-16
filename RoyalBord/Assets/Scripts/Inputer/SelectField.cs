@@ -1,3 +1,5 @@
+using Hand;
+using Turn;
 using Bridge;
 using Piece;
 using System.Collections;
@@ -6,13 +8,9 @@ using UnityEngine;
 
 namespace Inputer
 {
-    public class SelectField : MonoBehaviour, ICanInput
+    public class SelectField : MonoBehaviour
     {
         // フィールド情報を取得する処理
-
-        [SerializeField] private GameObject arrowObj_Default;
-        [SerializeField] private GameObject arrowObj_King;
-
 
         // オブジェクト取得用変数
         private GameObject clickedObj;
@@ -32,21 +30,12 @@ namespace Inputer
         // クラス変数
         private SendData sendData;
         private HoldObj holdObj;
-
-
-        // フラグ
-        private bool inputFlg = false; // 入力受付用フラグ 
-        private bool selecrFlg = false; // 選択可能フラグ
-
         private GameObject pieceChild;
+        private HandPieceCore handPieceCore;
 
-        // 入力受付インターフェースを実装
-        public bool CanInput(bool flg)
-        {
-            inputFlg = flg;
-            return inputFlg;
-        }
 
+        // 選択可能フラグ
+        private bool selecrFlg = false;
 
 
         // Start is called before the first frame update
@@ -55,13 +44,14 @@ namespace Inputer
             // コンポーネント取得
             sendData = GetComponent<SendData>();
             holdObj = GetComponent<HoldObj>();
+            handPieceCore = GetComponent<HandPieceCore>();
         }
 
         // Update is called once per frame
         void Update()
         {
             // 入力受付
-            if (inputFlg) return;
+            if (TurnManager.playerTurn) return;
 
             // メソッド呼び出し
             InputClick();
@@ -139,6 +129,8 @@ namespace Inputer
                         // 矢印の表示
                         pieceChild.gameObject.SetActive(true);
                     }
+
+                    //handPieceCore.LostHand(false);
 
                     // フラグを変更
                     selecrFlg = true;
