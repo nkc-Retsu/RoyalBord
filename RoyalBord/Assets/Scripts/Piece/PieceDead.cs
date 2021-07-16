@@ -6,25 +6,23 @@ namespace Piece
 {
     public class PieceDead : MonoBehaviour
     {
-        private PieceCore pieceCore;
+        // ƒRƒ}‚ª€‚ñ‚¾‚Æ‚«ˆ—
 
         private void Start()
         {
-            pieceCore = GetComponent<PieceCore>();
         }
 
         private void Update()
         {
-            Dead();
         }
 
-        private void Dead()
+
+        // €‚ñ‚¾‚Æ‚«ˆ—
+        public void Dead()
         {
-            if (pieceCore.HP <= 0)
-            {
-                Debug.Log(gameObject + "‚ª€‚ñ‚¾!!!");
-            }
+            Debug.Log(gameObject + "‚ª€‚ñ‚¾!!!");
         }
     }
-
 }
+
+

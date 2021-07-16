@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Bridge;
+using Photon.Pun;
+using Photon.Realtime;
 
 namespace Turn
 {
-    public class TurnManager : MonoBehaviour,ITurnChange
+    public class TurnManager : MonoBehaviourPunCallbacks,ITurnChange
     {
         enum STATE
         {
@@ -18,16 +20,32 @@ namespace Turn
 
         void Start()
         {
+            if(Matching.hostFlg)
+            {
+                playerTurn = Matching.playerTurn;
+                if(!playerTurn)
+                {
+                    photonView.RPC(nameof(TurnChangeRPC), RpcTarget.Others);
+                }
+            }
 
+            Debug.Log(playerTurn);
         }
 
         void Update()
         {
-            TestInputer();
+            //TestInputer();
+            Debug.Log(playerTurn);
         }
 
 
         public void TurnChange()
+        {
+            photonView.RPC(nameof(TurnChangeRPC), RpcTarget.All);
+        }
+
+        [PunRPC]
+        private void TurnChangeRPC()
         {
             playerTurn = (playerTurn) ? false : true;
         }
