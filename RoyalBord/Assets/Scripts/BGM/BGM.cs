@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
+using DG.Tweening;
 
 public class BGM : MonoBehaviour
 {
     [SerializeField] AudioClip titleBGM;
     [SerializeField] AudioClip buttleBGM;
     AudioSource audioSource;
-    Scene nowScene;
-    float volumeFade = 1f;
+    float volumeFadeTime = 1f;
+
+    int sceneJudge = 1; //1ならtitleBGM  -1ならbuttleBGM
+    public static bool fadeStartFlg = false; //trueになったらフェード開始
+
 
     void Start()
     {
@@ -18,31 +21,42 @@ public class BGM : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+
     void Update()
     {
-        nowScene = SceneManager.GetActiveScene(); //現在いるシーン名を取得
 
-        SceneManager.activeSceneChanged += ActiveSceneChanged;
-    }
-
-    void ActiveSceneChanged(Scene beforeScene,Scene nextScene)
-    {
-        if(beforeScene.name == "TitleScene" && nextScene.name == "SampleScene")
+        if(fadeStartFlg == true)
         {
+            sceneJudge *= -1;
+            StartCoroutine("BGMFade");
+            Debug.Log("tootta");
 
-            //StartCoroutine("BGMFade");
+            fadeStartFlg = false;
         }
     }
 
-    IEnumerator BGMFade()
-    {
-        audioSource.volume -= volumeFade * Time.deltaTime;
-        yield return new WaitForSeconds(3f);
 
-        //audioSource.volume -= volumeFade * Time.deltaTime;
-        //yield return new WaitForSeconds(3f);
-        //audioSource.clip = buttleBGM;
-        //audioSource.volume += volumeFade * Time.deltaTime;
-        //yield return new WaitForSeconds(3f);
+    //void ActiveSceneChanged(Scene beforeScene,Scene nextScene)
+    //{
+    //    if(beforeScene.name == "TitleScene" && nextScene.name == "SampleScene")
+    //    {
+
+    //        //StartCoroutine("BGMFade");
+    //    }
+    //}
+
+    public IEnumerator BGMFade()
+    {
+        audioSource.DOFade(0,volumeFadeTime);
+        yield return new WaitForSeconds(volumeFadeTime + 0.01f);
+
+        //ここでシーンチェンジ
+
+        if (sceneJudge == -1) { audioSource.clip = buttleBGM; }
+        else                  { audioSource.clip =  titleBGM; }
+        audioSource.Play();
+
+        audioSource.DOFade(0.2f, volumeFadeTime);
+        yield return new WaitForSeconds(volumeFadeTime + 0.01f);
     }
 }
