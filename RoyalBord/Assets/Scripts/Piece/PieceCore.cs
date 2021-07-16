@@ -97,7 +97,7 @@ namespace Piece
             kingDead        = GetComponent<KingDead>();
 
 
-            handWall = GameObject.Find("HandWall");
+            handWall = GameObject.Find("Hand_Wall");
             handWall_Child = handWall.gameObject.transform.GetChild(0);
 
 
