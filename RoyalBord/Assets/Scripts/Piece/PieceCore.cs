@@ -62,34 +62,6 @@ namespace Piece
 
         private void Start()
         {
-            string objName = null;
-
-            switch (gameObject.tag)
-            {
-                case "PlayerPiece":
-                    switch (pieceType)
-                    {
-                         
-                    }
-                    break;
-
-                case "EnemyPiece":
-                    break;
-
-                case "PlayerWall":
-                    break;
-
-                case "EnemyWall":
-                    break;
-
-                default:
-                    break;
-            }
-
-            GameObject obj = GameObject.Find(objName);
-            Destroy(obj);
-
-
             // コンポーネント取得
             pieceAttackArea = GetComponent<PieceAttackArea>();
             pieceMoveArea   = GetComponent<PieceMoveArea>();
@@ -104,6 +76,58 @@ namespace Piece
             // ScriptableObjectを代入
             hp = pieceStatus.hp;
             this.pieceType = pieceStatus.pieceType;
+
+            string objName = null;
+
+            switch (gameObject.tag)
+            {
+                case "PlayerPiece":
+                    switch (pieceType)
+                    {
+                        case 1:
+                            objName = "HandPiece_Knight";
+                            break;
+                        case 2:
+                            objName = "HandPiece_Shielder";
+                            break;
+                        case 3:
+                            objName = "HandPiece_Archer";
+                            break;
+                    }
+                    break;
+
+                case "EnemyPiece":
+                    switch (pieceType)
+                    {
+                        case 1:
+                            objName = "Enemy_HandPiece_Knight";
+                            break;
+                        case 2:
+                            objName = "Enemy_HandPiece_Shielder";
+                            break;
+                        case 3:
+                            objName = "Enemy_HandPiece_Archer";
+                            break;
+                    }
+
+                    break;
+
+                case "PlayerWall":
+
+                    break;
+
+                case "EnemyWall":
+                    break;
+
+                default:
+                    break;
+            }
+
+            GameObject obj = GameObject.Find(objName);
+            Debug.Log(obj);
+            Destroy(obj);
+
+
         }
 
         private void Update()
@@ -121,25 +145,28 @@ namespace Piece
             hp--;
             if (hp <= 0)
             {
-                if (pieceType == 0)
+                if (gameObject.tag == "PlayerPiece")
                 {
-                    kingDead.Dead();
-                    GameSetManager.loseCount = 3;
-                    GameSet();
-                    Debug.Log("ライフ" + GameSetManager.loseCount);
+                    if (pieceType == 0)
+                    {
+                        kingDead.Dead();
+                        GameSetManager.loseCount = 3;
+                        GameSet();
+                        Debug.Log("ライフ" + GameSetManager.loseCount);
+                    }
+                    else if (pieceType == 4)
+                    {
+                        Debug.Log("壁は壁を生成しないよ");
+                    }
+                    else
+                    {
+                        ActiveWall(GameSetManager.loseCount);
+                        pieceDead.Dead();
+                        GameSetManager.loseCount++;
+                        GameSet();
+                        Debug.Log("ライフ" + GameSetManager.loseCount);
+                    }
                 }
-                else if (pieceType == 4)
-                {
-                    Debug.Log("壁は壁を生成しないよ");
-                }
-                else 
-                {
-                    ActiveWall(GameSetManager.loseCount);
-                    pieceDead.Dead();
-                    GameSetManager.loseCount++;
-                    GameSet();
-                    Debug.Log("ライフ" + GameSetManager.loseCount);
-                }               
 
                 return true;
             }
@@ -233,7 +260,8 @@ namespace Piece
         {
             if (GameSetManager.loseCount >= 3)
             {
-                Debug.Log("お前の負け!!!!");
+                GameObject manager = GameObject.Find("Manager");
+                manager.GetComponent<GameSetManager>().GameSet();
                 return true;
             }
             else
