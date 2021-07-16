@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceStatus: {fileID: 11400000, guid: e2a74d1dc5401004d8269542aac1526d, type: 2}
+  handWall: {fileID: 7304110242690726181, guid: 2202e45a2ab2ded4d8908e2e1d93b859, type: 3}
 --- !u!114 &192150735775910869
 MonoBehaviour:
   m_ObjectHideFlags: 0

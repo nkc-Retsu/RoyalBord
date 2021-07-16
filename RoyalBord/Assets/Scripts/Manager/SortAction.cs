@@ -71,7 +71,7 @@ namespace Manager
                         move.MoveAction(selectObj1, selectObj2);
                     }
                 }
-                else if (selectObj2.tag == "EnemyPiece")
+                else if (selectObj2.tag == "EnemyPiece" || selectObj2.tag=="PlayerWall" || selectObj2.tag=="EnemyWall")
                 {
                     // 攻撃範囲チェック
                     int[,] attackAreaArr = selectObj1.GetComponent<IGetAttackArea>().GetAttackArea();

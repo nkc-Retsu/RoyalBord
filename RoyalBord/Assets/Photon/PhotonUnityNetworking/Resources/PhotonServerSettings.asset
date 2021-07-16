@@ -16,11 +16,11 @@ MonoBehaviour:
     AppIdRealtime: 
     AppIdChat: 
     AppIdVoice: 
-    AppVersion: 
-    UseNameServer: 1
-    FixedRegion: 
-    Server: 
-    Port: 0
+    AppVersion: 1
+    UseNameServer: 0
+    FixedRegion: jp
+    Server: 172.18.86.119
+    Port: 5055
     Protocol: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1

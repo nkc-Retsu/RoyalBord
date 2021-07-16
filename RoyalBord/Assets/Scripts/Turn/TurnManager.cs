@@ -16,13 +16,17 @@ namespace Turn
         }
 
         public static bool playerTurn = false;
-        private int turnNum = 0;
+        public static int turnCount = 0;
 
         [SerializeField] bool debugFlg = false;
         [SerializeField] GameObject yourTurnUI;
 
+        //[SerializeField] private GameObject startSummonArea;
+
         void Start()
         {
+            turnCount = 0;
+
             if(Matching.hostFlg)
             {
                 playerTurn = Matching.playerTurn;
@@ -40,7 +44,6 @@ namespace Turn
         void Update()
         {
             TestInputer();
-            Debug.Log(playerTurn);
         }
 
 
@@ -53,7 +56,12 @@ namespace Turn
         private void TurnChangeRPC()
         {
             playerTurn = (playerTurn == true) ? false : true;
-            if (playerTurn) Instantiate(yourTurnUI);
+            if (playerTurn)
+            {
+                Instantiate(yourTurnUI);
+            }
+            turnCount++;
+            Debug.Log(turnCount + "É^Å[Éìñ⁄");
         }
 
 

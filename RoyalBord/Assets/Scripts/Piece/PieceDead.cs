@@ -9,12 +9,6 @@ namespace Piece
         // コマが死んだとき処理
 
 
-        // 壁のオブジェクト変数
-        [SerializeField] private GameObject wallObj;
-
-        // 壁を生成する位置
-        [SerializeField] private Vector3 spawnPoint;
-
         // クラス変数
         private SpriteRenderer sr;
 
@@ -39,9 +33,6 @@ namespace Piece
 
             // コルーチン呼び出し
             StartCoroutine("FadeClear");
-
-            // 手札の壁を生成する
-            Instantiate(wallObj).transform.position = spawnPoint;
         }
 
         // 透明にする処理
@@ -50,10 +41,10 @@ namespace Piece
             time = 0f;
 
             // フェードで消える
-            if(sr.color.a <= 0f) sr.color -= new Color(0f, 0f, 0f, 0.01f * time);
+            if (sr.color.a <= 0f) sr.color -= new Color(0,0,0,-1);
 
             // 2秒待つ　(こうすると結局消えるから意味なし？)
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
 
             // GameObjectのsetActiveを消す
             gameObject.SetActive(false); 
