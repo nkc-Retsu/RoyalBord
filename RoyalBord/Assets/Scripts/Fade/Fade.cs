@@ -11,7 +11,7 @@ public class Fade : MonoBehaviour
     [Header("フェード時間")]
     [SerializeField] float fadeTime;
     [Header("次のシーンでBGMが変わるならチェックを入れる")]
-    [SerializeField] bool nextIsAnotherBGMScene = true;
+    [SerializeField] bool nextIsAnotherBGMScene;
 
     float startPosX =  30; //初期位置
     float stopPosX  =  -8; //停止位置
