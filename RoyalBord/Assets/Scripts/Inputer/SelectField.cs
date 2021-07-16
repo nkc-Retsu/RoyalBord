@@ -78,7 +78,7 @@ namespace Inputer
                             if (ClickObj.gameObject.tag == "Field")
                             {
                                 // 手札を召喚したら手札のオブジェクトが消滅
-                                handPieceCore.LostHand(false);
+                                //handPieceCore.LostHand(false);
                             }
                             // 矢印のオブジェクトを取得
                             pieceChild = holdObj.ClickObj.transform.GetChild(0).gameObject;

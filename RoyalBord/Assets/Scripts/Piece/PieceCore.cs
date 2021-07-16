@@ -14,6 +14,10 @@ namespace Piece
         // ScriptableObject用変数
         [SerializeField] private PieceStatus pieceStatus;
 
+        // HandWall変数
+        private GameObject handWall;
+        private Transform handWall_Child;
+
         // クラス変数
         private PieceAttackArea pieceAttackArea;
         private PieceMoveArea   pieceMoveArea;
@@ -63,6 +67,11 @@ namespace Piece
             pieceDead       = GetComponent<PieceDead>();
             kingDead        = GetComponent<KingDead>();
 
+
+            handWall = GameObject.Find("HandWall");
+            handWall_Child = handWall.gameObject.transform.GetChild(0);
+
+
             // ScriptableObjectを代入
             hp = pieceStatus.hp;
             this.pieceType = pieceStatus.pieceType;
@@ -90,8 +99,13 @@ namespace Piece
                     GameSet();
                     Debug.Log("ライフ" + GameSetManager.loseCount);
                 }
+                else if (pieceType == 4)
+                {
+                    Debug.Log("壁は壁を生成しないよ");
+                }
                 else 
                 {
+                    ActiveWall(GameSetManager.loseCount);
                     pieceDead.Dead();
                     GameSetManager.loseCount++;
                     GameSet();
@@ -197,6 +211,14 @@ namespace Piece
             {
                 return false;
             }                             
+        }
+
+
+
+        private void ActiveWall(int n)
+        {
+            handWall_Child = handWall.gameObject.transform.GetChild(n);
+            handWall_Child.gameObject.SetActive(true);
         }
     }
 
