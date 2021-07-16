@@ -29,11 +29,9 @@ public class BGM : MonoBehaviour
         {
             sceneJudge *= -1;
             StartCoroutine("BGMFade");
-            Debug.Log("totta");
-
+            Debug.Log("tootta");
 
             fadeStartFlg = false;
-
         }
     }
 
@@ -51,10 +49,12 @@ public class BGM : MonoBehaviour
     {
         audioSource.DOFade(0,volumeFadeTime);
         yield return new WaitForSeconds(volumeFadeTime + 0.01f);
+
         //ここでシーンチェンジ
 
         if (sceneJudge == -1) { audioSource.clip = buttleBGM; }
-        else                  { audioSource.clip = titleBGM;  }
+        else                  { audioSource.clip =  titleBGM; }
+        audioSource.Play();
 
         audioSource.DOFade(0.2f, volumeFadeTime);
         yield return new WaitForSeconds(volumeFadeTime + 0.01f);
