@@ -18,6 +18,9 @@ namespace Turn
         public static bool playerTurn = false;
         private int turnNum = 0;
 
+        [SerializeField] bool debugFlg = false;
+        [SerializeField] GameObject yourTurnUI;
+
         void Start()
         {
             if(Matching.hostFlg)
@@ -30,11 +33,13 @@ namespace Turn
             }
 
             Debug.Log(playerTurn);
+
+            if (playerTurn) Instantiate(yourTurnUI);
         }
 
         void Update()
         {
-            //TestInputer();
+            TestInputer();
             Debug.Log(playerTurn);
         }
 
@@ -47,34 +52,23 @@ namespace Turn
         [PunRPC]
         private void TurnChangeRPC()
         {
-            playerTurn = (playerTurn) ? false : true;
+            playerTurn = (playerTurn == true) ? false : true;
+            if (playerTurn) Instantiate(yourTurnUI);
         }
 
 
         private void StateChange()
         {
-            if(turnNum == 0)
-            {
-                
-            }
-            else if(turnNum % 2 == 1)
-            {
-                TurnChange();
-            }
-            else if(turnNum % 2 == 0)
-            {
-                TurnChange();
-            }
+
         }
 
         private void TestInputer()
         {
+            if (!debugFlg) return;
+
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                turnNum++;
-                StateChange();
-
-                Debug.Log("playerTurn=" + playerTurn);
+                TurnChangeRPC();
             }
         }
 
