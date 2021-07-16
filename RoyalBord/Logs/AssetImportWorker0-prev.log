@@ -16,6 +16,7 @@ C:/Users/user/Documents/RoyalBord/RoyalBord
 Logs/AssetImportWorker0.log
 -srvPort
 <<<<<<< HEAD
+<<<<<<< HEAD
 59205
 Successfully changed project path to: C:/Users/user/Documents/RoyalBord/RoyalBord
 C:/Users/user/Documents/RoyalBord/RoyalBord
@@ -28,6 +29,13 @@ C:/Users/user/Documents/RoyalBord/RoyalBord
 Using Asset Import Pipeline V2.
 Refreshing native plugins compatible for Editor in 81.72 ms, found 3 plugins.
 >>>>>>> bbfceb7c7e19ee401f140244e700139671509c08
+=======
+62033
+Successfully changed project path to: C:/Users/user/Documents/RoyalBord/RoyalBord
+C:/Users/user/Documents/RoyalBord/RoyalBord
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 81.72 ms, found 3 plugins.
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.12f1 (b3b2c6512326)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/UnitySubsystems
@@ -40,6 +48,7 @@ Direct3D:
     VRAM:     4024 MB
     Driver:   27.20.100.7988
 Initialize mono
+<<<<<<< HEAD
 <<<<<<< HEAD
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
@@ -70,6 +79,14 @@ Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Mo
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56396
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
+=======
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56396
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Registered in 0.002011 seconds.
 Native extension for WindowsStandalone target not found
@@ -86,20 +103,28 @@ Refreshing native plugins compatible for Editor in 56.72 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
 - Completed reload, in  1.380 seconds
+<<<<<<< HEAD
 >>>>>>> bbfceb7c7e19ee401f140244e700139671509c08
+=======
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
 <<<<<<< HEAD
+<<<<<<< HEAD
 Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
 =======
 Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
 >>>>>>> bbfceb7c7e19ee401f140244e700139671509c08
+=======
+Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2501 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 107.2 MB.
 System memory in use after: 107.4 MB.
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 2934.
@@ -214,9 +239,25 @@ Received Import Request.
   artifactKey: Guid(e20631968778f114bb8d9896340b0511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/Field_Piece/Field_Piece_Red/Player_Piece_Shielder.prefab using Guid(e20631968778f114bb8d9896340b0511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bd2d935842f976df6ae9a3123ed9423') in 0.018047 seconds
   Import took 0.024267 seconds .
+=======
 
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 2939.
+Total: 3.063900 ms (FindLiveObjects: 0.285300 ms CreateObjectMapping: 0.107300 ms MarkObjects: 2.558800 ms  DeleteObjects: 0.111400 ms)
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
+<<<<<<< HEAD
   Time since last request: 11.617936 seconds.
   path: Assets/Prefabs/Field_Piece/Field_WallPiece .prefab
   artifactKey: Guid(4ef19717a78f462458e8d0d738063af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -426,6 +467,38 @@ Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettin
   Import took 0.013079 seconds .
 
 ========================================================================
+=======
+  path: Assets/Scenes/TitleScene.unity
+  artifactKey: Guid(b41bafb344a603b46a15eae1f0742391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/TitleScene.unity using Guid(b41bafb344a603b46a15eae1f0742391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '371491c93a6ca77b0a895ef6fdbdb74b') in 0.014168 seconds 
+  Import took 0.020001 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 66.289037 seconds.
+  path: Assets/Prefabs/Waiting.prefab
+  artifactKey: Guid(b617458329e68554997c04675c88a918) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Waiting.prefab using Guid(b617458329e68554997c04675c88a918) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b190c73fc2956cb6e8c665a6def3022a') in 0.156774 seconds 
+  Import took 0.165239 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 45.234933 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+  artifactKey: Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73fc170d1b15a5f17033f8195db39f5a') in 0.012067 seconds 
+  Import took 0.019279 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.040069 seconds.
+  path: Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+  artifactKey: Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset using Guid(4821d6749028d794ea17230c5c2af54b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73fc170d1b15a5f17033f8195db39f5a') in 0.005369 seconds 
+  Import took 0.013079 seconds .
+
+========================================================================
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.006533 seconds.
@@ -459,12 +532,16 @@ AssetImportParameters requested are different than current active one (requested
 Received Prepare
 Registering precompiled user dll's ...
 Registered in 0.008456 seconds.
+<<<<<<< HEAD
 >>>>>>> bbfceb7c7e19ee401f140244e700139671509c08
+=======
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
+<<<<<<< HEAD
 <<<<<<< HEAD
 - Completed reload, in  2.144 seconds
 Platform modules already initialized, skipping
@@ -630,6 +707,8 @@ Start importing Assets/Prefabs/Field_Piece/Field_Piece_Red/Player_Piece_Archer.p
   Import took 0.077403 seconds .
 
 =======
+=======
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
 - Completed reload, in  1.338 seconds
 Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
@@ -651,5 +730,8 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+<<<<<<< HEAD
 >>>>>>> bbfceb7c7e19ee401f140244e700139671509c08
+=======
+>>>>>>> de9d9952939b2efd05b8d97d6784f4743de9e571
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
