@@ -9,6 +9,7 @@ using Photon.Realtime;
 public class Matching : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Text playerName_text;
+    [SerializeField] private Text ip_text;
     [SerializeField] private Text roomID_txt;
 
     public static string playerName;
@@ -17,8 +18,10 @@ public class Matching : MonoBehaviourPunCallbacks
     public static bool playerTurn = false;
     void Start()
     {
-        PhotonNetwork.ConnectUsingSettings(); // PhotonÇ∆ê⁄ë±
         //if (PhotonNetwork.IsConnected) Debug.Log("ê⁄ë±çœÇ›");
+        PhotonNetwork.PhotonServerSettings.AppSettings.Server = ip_text.text;
+        PhotonNetwork.ConnectUsingSettings(); // PhotonÇ∆ê⁄ë±
+
     }
 
     private void Update()
@@ -31,14 +34,17 @@ public class Matching : MonoBehaviourPunCallbacks
 
     public void Connect()
     {
-        PhotonNetwork.PhotonServerSettings.AppSettings.Server = "172.18.86.119";
+
+        PhotonNetwork.PhotonServerSettings.AppSettings.Server = ip_text.text;
         PhotonNetwork.ConnectUsingSettings(); // PhotonÇ∆ê⁄ë±
+
 
     }
 
     public void Create()
     {
-        //PhotonNetwork.PhotonServerSettings.AppSettings.Server = ip.text;
+        PhotonNetwork.PhotonServerSettings.AppSettings.Server = ip_text.text;
+        PhotonNetwork.ConnectUsingSettings(); // PhotonÇ∆ê⁄ë±
 
         PhotonNetwork.NickName = playerName_text.text;
         PhotonNetwork.CreateRoom(roomID_txt.text);
@@ -46,6 +52,9 @@ public class Matching : MonoBehaviourPunCallbacks
 
     public void Join()
     {
+        PhotonNetwork.PhotonServerSettings.AppSettings.Server = ip_text.text;
+        PhotonNetwork.ConnectUsingSettings(); // PhotonÇ∆ê⁄ë±
+
         PhotonNetwork.NickName = playerName_text.text;
         PhotonNetwork.JoinRoom(roomID_txt.text);
     }
