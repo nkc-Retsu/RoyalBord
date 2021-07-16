@@ -11,6 +11,9 @@ TagManager:
   - EnemyPiece
   - PlayerPiece
   - HandPiece
+  - Wall
+  - PlayerWall
+  - EnemyWall
   layers:
   - Default
   - TransparentFX

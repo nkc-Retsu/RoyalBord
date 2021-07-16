@@ -57,10 +57,39 @@ namespace Piece
             }
         }
 
+         
 
 
         private void Start()
         {
+            string objName = null;
+
+            switch (gameObject.tag)
+            {
+                case "PlayerPiece":
+                    switch (pieceType)
+                    {
+                         
+                    }
+                    break;
+
+                case "EnemyPiece":
+                    break;
+
+                case "PlayerWall":
+                    break;
+
+                case "EnemyWall":
+                    break;
+
+                default:
+                    break;
+            }
+
+            GameObject obj = GameObject.Find(objName);
+            Destroy(obj);
+
+
             // コンポーネント取得
             pieceAttackArea = GetComponent<PieceAttackArea>();
             pieceMoveArea   = GetComponent<PieceMoveArea>();
