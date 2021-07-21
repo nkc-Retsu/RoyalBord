@@ -53,7 +53,7 @@ public class Credit : MonoBehaviour
             space +
             "ペン回し上手そう：恩田嵩央\n" +
             space +
-            "シャニマスのツイートのリプ欄にいる：伊藤ヒロキ @hiroshi123js\n" +
+            "シャニマスのツイートのリプ欄にいる：伊藤滉規 @hiroshi123js\n" +
             space +
             "アルティメットスペシャルアドバイザー：平野孝明\n" +
             space +
