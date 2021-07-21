@@ -8,6 +8,13 @@ namespace Manager
     {
         // ƒRƒ}‚ª€‚ñ‚¾”‚ğ‚Á‚Ä‚¢‚é•Ï”
         public static int loseCount;
+
+        [SerializeField] GameObject gameSet;
+
+        public void GameSet()
+        {
+            Instantiate(gameSet);
+        }
     }
 
 }
