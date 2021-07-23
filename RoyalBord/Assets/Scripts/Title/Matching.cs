@@ -12,6 +12,8 @@ public class Matching : MonoBehaviourPunCallbacks
     [SerializeField] private Text ip_text;
     [SerializeField] private Text roomID_txt;
 
+    [SerializeField] private GameObject cloud;
+
     public static string playerName;
     public static string enemyName;
     public static bool hostFlg;
@@ -109,6 +111,6 @@ public class Matching : MonoBehaviourPunCallbacks
     [PunRPC]
     private void GameStart()
     {
-        SceneManager.LoadScene("GodoTest");
+        cloud.SetActive(true);
     }
 }

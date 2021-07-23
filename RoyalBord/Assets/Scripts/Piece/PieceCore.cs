@@ -68,7 +68,7 @@ namespace Piece
             pieceDead       = GetComponent<PieceDead>();
             kingDead        = GetComponent<KingDead>();
 
-            // 手札の壁を取得
+
             handWall = GameObject.Find("Hand_Wall");
             handWall_Child = handWall.gameObject.transform.GetChild(0);
 
@@ -77,17 +77,13 @@ namespace Piece
             hp = pieceStatus.hp;
             this.pieceType = pieceStatus.pieceType;
 
-            // コマの名前を取得する変数
             string objName = null;
 
-            // 取得したコマのタグ
             switch (gameObject.tag)
             {
-                // 味方のコマの場合
                 case "PlayerPiece":
                     switch (pieceType)
                     {
-                        // 味方の手札
                         case 1:
                             objName = "HandPiece_Knight";
                             break;
@@ -100,11 +96,9 @@ namespace Piece
                     }
                     break;
 
-                // 敵のコマの場合
                 case "EnemyPiece":
                     switch (pieceType)
                     {
-                        // 敵の手札
                         case 1:
                             objName = "Enemy_HandPiece_Knight";
                             break;
@@ -118,25 +112,19 @@ namespace Piece
 
                     break;
 
-                // 味方の壁
                 case "PlayerWall":
 
                     break;
 
-                // 敵の壁
                 case "EnemyWall":
                     break;
 
-                // それ以外
                 default:
                     break;
             }
 
-            // 特定のゲームオブジェクトを取得
             GameObject obj = GameObject.Find(objName);
             Debug.Log(obj);
-
-            // 選択したコマを消滅
             Destroy(obj);
 
 
@@ -157,52 +145,31 @@ namespace Piece
             hp--;
             if (hp <= 0)
             {
-                // プレイヤーのコマの場合
-                if (gameObject.tag == "PlayerPiece")
+                if (pieceType == 0)
                 {
-                    // コマのタイプがキングだった場合
-                    if (pieceType == 0)
-                    {
-                        // キングが死ぬ処理呼び出し
-                        kingDead.Dead();
+                    kingDead.Dead();
+                    if (gameObject.tag == "PlayerPiece") GameSetManager.loseCount = 3;
 
-                        // 勝敗に必要な変数(この変数が3になったら負ける)
-                        GameSetManager.loseCount = 3;
-
-                        // ゲームセット処理呼び出し
-                        GameSet();
-
-                        Debug.Log("ライフ" + GameSetManager.loseCount);
-                    }
-                    // コマのタイプが壁の場合
-                    else if (pieceType == 4)
-                    {
-                        Debug.Log("壁は壁を生成しないよ");
-                    }
-                    // それ以外
-                    else
-                    {
-                        // 手札の壁を使えるようにする
-                        ActiveWall(GameSetManager.loseCount);
-
-                        // コマが死ぬとき処理呼び出し
-                        pieceDead.Dead();
-
-                        // 勝敗に必要な変数(この変数が3になったら負ける)
-                        GameSetManager.loseCount++;
-
-                        // ゲームセット処理呼び出し
-                        GameSet();
-
-                        Debug.Log("ライフ" + GameSetManager.loseCount);
-                    }
+                    GameSet();
+                    Debug.Log("ライフ" + GameSetManager.loseCount);
                 }
-                // コマが死んだかを返す
+                else if (pieceType == 4)
+                {
+                    Debug.Log("壁は壁を生成しないよ");
+                }
+                else
+                {
+                    ActiveWall(GameSetManager.loseCount);
+                    pieceDead.Dead();
+                    GameSetManager.loseCount++;
+                    GameSet();
+                    Debug.Log("ライフ" + GameSetManager.loseCount);
+                }
+
                 return true;
             }
             return false;
         }
-
         // HPを返すインターフェース
         public int GetHP()
         { 
@@ -217,7 +184,6 @@ namespace Piece
         // 攻撃範囲インターフェース
         public int[,] GetAttackArea()
         {
-            // コマによって攻撃できる範囲を変える
             switch (pieceStatus.attackArea)
             {
                 case 1:
@@ -228,7 +194,6 @@ namespace Piece
 
                 case 3:
                     return pieceAttackArea.AttackAreaKnight;
-
                 default:
                     return null;
             }
@@ -239,7 +204,6 @@ namespace Piece
         {
             switch (pieceStatus.moveArea)
             {
-                // コマによって移動できる範囲を変える
                 case 1:
                     return pieceMoveArea.MoveAreaDefault;
 
@@ -254,7 +218,6 @@ namespace Piece
         // 移動範囲インターフェース(Inputerに渡す用)
         public int[,] ShowArea()
         {
-            // コマを選択した時に矢印を出す用
             switch (pieceStatus.moveArea)
             {
                 case 1:
@@ -295,24 +258,18 @@ namespace Piece
         {
             if (GameSetManager.loseCount >= 3)
             {
-                // マネージャーを取得する
                 GameObject manager = GameObject.Find("Manager");
-
-                // コンポーネント取得
                 manager.GetComponent<GameSetManager>().GameSet();
-
-                // ゲームが終了したことを返す
                 return true;
             }
             else
             {
-                // まだゲームが終了していないことを返す
                 return false;
             }                             
         }
 
 
-        // 手札の壁を使えるようにする処理
+
         private void ActiveWall(int n)
         {
             handWall_Child = handWall.gameObject.transform.GetChild(n);
