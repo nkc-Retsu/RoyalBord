@@ -235,6 +235,7 @@ MonoBehaviour:
   playerName_text: {fileID: 476360040}
   ip_text: {fileID: 50128515}
   roomID_txt: {fileID: 1885879553}
+  cloud: {fileID: 301010873}
 --- !u!4 &64504836
 Transform:
   m_ObjectHideFlags: 0
@@ -470,6 +471,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
+--- !u!1 &301010873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8774110585997114915, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
+  m_PrefabInstance: {fileID: 301010872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &301021993
 GameObject:
   m_ObjectHideFlags: 0

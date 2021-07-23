@@ -145,27 +145,25 @@ namespace Piece
             hp--;
             if (hp <= 0)
             {
-                if (gameObject.tag == "PlayerPiece")
+                if (pieceType == 0)
                 {
-                    if (pieceType == 0)
-                    {
-                        kingDead.Dead();
-                        GameSetManager.loseCount = 3;
-                        GameSet();
-                        Debug.Log("ライフ" + GameSetManager.loseCount);
-                    }
-                    else if (pieceType == 4)
-                    {
-                        Debug.Log("壁は壁を生成しないよ");
-                    }
-                    else
-                    {
-                        ActiveWall(GameSetManager.loseCount);
-                        pieceDead.Dead();
-                        GameSetManager.loseCount++;
-                        GameSet();
-                        Debug.Log("ライフ" + GameSetManager.loseCount);
-                    }
+                    kingDead.Dead();
+                    if (gameObject.tag == "PlayerPiece") GameSetManager.loseCount = 3;
+
+                    GameSet();
+                    Debug.Log("ライフ" + GameSetManager.loseCount);
+                }
+                else if (pieceType == 4)
+                {
+                    Debug.Log("壁は壁を生成しないよ");
+                }
+                else
+                {
+                    ActiveWall(GameSetManager.loseCount);
+                    pieceDead.Dead();
+                    GameSetManager.loseCount++;
+                    GameSet();
+                    Debug.Log("ライフ" + GameSetManager.loseCount);
                 }
 
                 return true;
