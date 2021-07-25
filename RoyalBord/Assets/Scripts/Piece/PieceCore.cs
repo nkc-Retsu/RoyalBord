@@ -69,6 +69,7 @@ namespace Piece
             kingDead        = GetComponent<KingDead>();
 
 
+            // 手札の壁取得
             handWall = GameObject.Find("Hand_Wall");
             handWall_Child = handWall.gameObject.transform.GetChild(0);
 
@@ -77,10 +78,13 @@ namespace Piece
             hp = pieceStatus.hp;
             this.pieceType = pieceStatus.pieceType;
 
+            // コマの名前変数
             string objName = null;
 
+            // コマのタグによって処理を変更
             switch (gameObject.tag)
             {
+                // 味方のコマの場合
                 case "PlayerPiece":
                     switch (pieceType)
                     {
@@ -96,6 +100,7 @@ namespace Piece
                     }
                     break;
 
+                // 敵のコマの場合
                 case "EnemyPiece":
                     switch (pieceType)
                     {
@@ -112,19 +117,24 @@ namespace Piece
 
                     break;
 
+                // 味方の壁の場合
                 case "PlayerWall":
 
                     break;
-
+                // 敵の壁の場合
                 case "EnemyWall":
                     break;
 
+                // それ以外
                 default:
                     break;
             }
 
+            // 選択したコマを取得
             GameObject obj = GameObject.Find(objName);
             Debug.Log(obj);
+
+            // 手札のコマを消滅？
             Destroy(obj);
 
 
@@ -142,26 +152,43 @@ namespace Piece
         //  HPを減らすインターフェース
         public bool DecreaseHP()
         {
+            // hpをマイナス
             hp--;
+
+            // コマの種類別の死んだとき処理
             if (hp <= 0)
             {
+                // キングの場合
                 if (pieceType == 0)
                 {
+                    // キングが死んだとき処理呼び出し
                     kingDead.Dead();
+
+                    // 3になったら負ける変数を増やす
                     if (gameObject.tag == "PlayerPiece") GameSetManager.loseCount = 3;
 
+                    // ゲーム終了処理呼び出し
                     GameSet();
                     Debug.Log("ライフ" + GameSetManager.loseCount);
                 }
+                // 壁の場合
                 else if (pieceType == 4)
                 {
                     Debug.Log("壁は壁を生成しないよ");
                 }
+                // それ以外
                 else
                 {
+                    // 壁を表示
                     ActiveWall(GameSetManager.loseCount);
+
+                    // コマが死んだとき処理呼び出し
                     pieceDead.Dead();
+
+                    // 3になったら負ける変数を増やす
                     GameSetManager.loseCount++;
+
+                    // ゲーム終了処理呼び出し
                     GameSet();
                     Debug.Log("ライフ" + GameSetManager.loseCount);
                 }
@@ -269,7 +296,7 @@ namespace Piece
         }
 
 
-
+        // 手札の壁を表示する処理
         private void ActiveWall(int n)
         {
             handWall_Child = handWall.gameObject.transform.GetChild(n);
