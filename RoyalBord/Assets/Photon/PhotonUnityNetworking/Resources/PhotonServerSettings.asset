@@ -19,7 +19,7 @@ MonoBehaviour:
     AppVersion: 1
     UseNameServer: 0
     FixedRegion: jp
-    Server: 172.18.86.119
+    Server: 192.168.10.103
     Port: 5055
     Protocol: 0
     EnableLobbyStatistics: 0
