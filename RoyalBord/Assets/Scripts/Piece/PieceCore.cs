@@ -87,7 +87,7 @@ namespace Piece
             handWall_Child = handWall.gameObject.transform.GetChild(0);
 
             // “G‚ÌèD‚Ì•Çæ“¾
-            enemyHandWall = GameObject.Find("Enemy_Hand_Wall");
+            enemyHandWall       = GameObject.Find("Enemy_Hand_Wall");
             enemyHandWall_Child = enemyHandWall.gameObject.transform.GetChild(0);
 
 
@@ -135,15 +135,17 @@ namespace Piece
                     }
                     break;
 
-                // –¡•û‚Ì•Ç‚Ìê‡
-                case "HandPiece":
-                    objName = "Hand_WallPiece";
-                    break;
+                //case "HandPiece":
+                //    if(GameSetManager.loseCount == 1)
+                //    {
 
-                // “G‚Ì•Ç‚Ìê‡
-                case "EnemyWall":
-                    objName = "Hand_WallPiece";
-                    break;
+                //    }
+                //    else if (GameSetManager.loseCount == 2)
+                //    {
+
+                //    }
+                //    else if(GameSetManager.loseCount == 3)
+                //    break;
 
                 // ‚»‚êˆÈŠO
                 default:
@@ -156,6 +158,8 @@ namespace Piece
 
             // èD‚ÌƒRƒ}‚ğÁ–ÅH
             Destroy(obj);
+
+            
 
         }
 
