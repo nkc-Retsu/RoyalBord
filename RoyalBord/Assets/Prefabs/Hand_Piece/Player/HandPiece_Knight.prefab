@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieceStatus: {fileID: 11400000, guid: d7e310f9898c6924aa8d68b2237464f1, type: 2}
+  shieldCrack_Player: {fileID: 2551541108661590903, guid: a831a5072755ba54698cebaa802cd028, type: 3}
+  shieldCrack_Enemy: {fileID: 2551541108661590903, guid: a831a5072755ba54698cebaa802cd028, type: 3}
+  wallCrack: {fileID: 2551541108661590903, guid: a831a5072755ba54698cebaa802cd028, type: 3}
 --- !u!114 &5291692634865823524
 MonoBehaviour:
   m_ObjectHideFlags: 0
