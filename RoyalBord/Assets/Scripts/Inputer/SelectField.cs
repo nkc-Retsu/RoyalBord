@@ -87,6 +87,7 @@ namespace Inputer
                     // 何も取得していない時は早期リターン
                     if (clickedObj == null)
                     {
+                        pieceChild.gameObject.SetActive(false);
                         return;
                     }
                     // 同じ駒を選択した場合は選択解除

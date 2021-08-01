@@ -33,6 +33,7 @@ namespace Piece
         private PieceMoveArea pieceMoveArea;
         private PieceDead pieceDead;
         private KingDead kingDead;
+        private PieceDamageSE pieceDamageSE;
 
         // 変更用HP変数
         private int hp;
@@ -80,6 +81,7 @@ namespace Piece
             pieceMoveArea   = GetComponent<PieceMoveArea>();
             pieceDead       = GetComponent<PieceDead>();
             kingDead        = GetComponent<KingDead>();
+            pieceDamageSE   = GetComponent<PieceDamageSE>();
 
 
             // 手札の壁取得
@@ -230,12 +232,14 @@ namespace Piece
                     case "PlayerPiece":
                         // sprite変更
                         pieceDamagedClack(shieldCrack_Player);
+                        pieceDamageSE.DamagedSE_Sheilder();
                         break;
 
                     // 敵の場合
                     case "EnemyPiece":
             　　　　　　// sprite変更
                         pieceDamagedClack(shieldCrack_Enemy);
+                        pieceDamageSE.DamagedSE_Sheilder();
                         break;
 
                     // 味方の壁の場合
@@ -272,6 +276,8 @@ namespace Piece
             // キングの場合
             if (pieceType == 0)
             {
+                pieceDamageSE.DamagedSE_Defaut();
+
                 // キングが死んだとき処理呼び出し
                 kingDead.Dead();
 
@@ -288,6 +294,7 @@ namespace Piece
             // 壁の場合
             else if (pieceType == 4)
             {
+                pieceDamageSE.DamagedSE_Defaut();
                 Debug.Log("壁は壁を生成しないよ");
             }
             // それ以外
