@@ -137,35 +137,34 @@ namespace Piece
 
                 // 手札の壁を非表示にする(味方)
                 case "PlayerWall":
-                    if (GameSetManager.loseCount == 1)
+                    if (GameSetManager.playerLoseCount == 1)
                     {
-                        ActivePlayerWall(GameSetManager.loseCount, false);
+                        ActivePlayerWall(GameSetManager.playerLoseCount, false);
                     }
-                    else if (GameSetManager.loseCount == 2)
+                    else if (GameSetManager.playerLoseCount == 2)
                     {
-                        ActivePlayerWall(GameSetManager.loseCount, false);
+                        ActivePlayerWall(GameSetManager.playerLoseCount, false);
                     }
-                    else if (GameSetManager.loseCount == 3)
+                    else if (GameSetManager.playerLoseCount == 3)
                     {
-                        ActivePlayerWall(GameSetManager.loseCount, false);
+                        ActivePlayerWall(GameSetManager.playerLoseCount, false);
                     }
                     break;
 
                 // 手札の壁を非表示にする(敵)
                 case "EnemyWall":
-                    if(enemyWallCount == 1)
+                    if(GameSetManager.enemyLoseCount == 1)
                     {
-                        ActiveEnemyWall(enemyWallCount, false);
+                        ActiveEnemyWall(GameSetManager.enemyLoseCount, false);
                     }
-                    if (enemyWallCount == 2)
+                    if (GameSetManager.enemyLoseCount == 2)
                     {
-                        ActiveEnemyWall(enemyWallCount, false);
+                        ActiveEnemyWall(GameSetManager.enemyLoseCount, false);
                     }
-                    if (enemyWallCount == 3)
+                    if (GameSetManager.enemyLoseCount == 3)
                     {
-                        ActiveEnemyWall(enemyWallCount, false);
+                        ActiveEnemyWall(GameSetManager.enemyLoseCount, false);
                     }
-
                     break;
 
                 // それ以外
@@ -279,12 +278,12 @@ namespace Piece
                 Debug.Log("味方のキング死亡");
 
                 // 3になったら負ける変数を増やす
-                GameSetManager.loseCount = 3;
+                GameSetManager.playerLoseCount = 3;
 
                 // ゲーム終了処理呼び出し
                 GameSet();
 
-                Debug.Log("味方の"+"ライフ" + GameSetManager.loseCount);
+                Debug.Log("味方の"+"ライフ" + GameSetManager.playerLoseCount);
             }
             // 壁の場合
             else if (pieceType == 4)
@@ -298,15 +297,15 @@ namespace Piece
                 pieceDead.Dead();
                 
                 // 3になったら負ける変数を増やす
-                GameSetManager.loseCount++;
+                GameSetManager.playerLoseCount++;
 
                 // 壁を表示
-                ActivePlayerWall(GameSetManager.loseCount, true);
+                ActivePlayerWall(GameSetManager.playerLoseCount, true);
 
                 //ゲーム終了処理呼び出し
                 GameSet();
 
-                Debug.Log("味方の" + "ライフ" + GameSetManager.loseCount);
+                Debug.Log("味方の" + "ライフ" + GameSetManager.playerLoseCount);
 
             }
         }
@@ -320,9 +319,11 @@ namespace Piece
                 // キングが死んだとき処理呼び出し
                 kingDead.Dead();
 
+                // 3になったら負ける変数を増やす
+                GameSetManager.enemyLoseCount = 3;
+
                 Debug.Log("敵のキング死亡");
 
-                // どっちが勝ったかをどう伝える？(ゆーがと相談)
                 // ゲーム終了処理呼び出し
                 GameSet();
 
@@ -339,10 +340,10 @@ namespace Piece
                 pieceDead.Dead();
 
                 // 敵の手札壁表示用変数
-                enemyWallCount++;
+                GameSetManager.enemyLoseCount++;
                 
                 // 壁を表示
-                ActiveEnemyWall(enemyWallCount,true);
+                ActiveEnemyWall(GameSetManager.enemyLoseCount, true);
 
                 //ゲーム終了処理呼び出し
                 GameSet();
@@ -448,7 +449,7 @@ namespace Piece
         // ゲームが終了したかどうかを返すインターフェース
         public bool GameSet()
         {
-            if (GameSetManager.loseCount >= 3)
+            if (GameSetManager.playerLoseCount >= 3 || GameSetManager.enemyLoseCount >= 3)
             {
                 GameObject manager = GameObject.Find("Manager");
                 manager.GetComponent<GameSetManager>().GameSet();

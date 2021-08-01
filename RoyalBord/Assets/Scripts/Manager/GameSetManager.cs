@@ -7,8 +7,12 @@ namespace Manager
 {
     public class GameSetManager : MonoBehaviour
     {
-        // コマが死んだ数を持っている変数
-        public static int loseCount;
+        // コマが死んだ数を持っている変数(味方)
+        public static int playerLoseCount;
+
+        // コマが死んだ数を持っている変数(敵)
+        public static int enemyLoseCount;
+
 
         [SerializeField] GameObject gameSetWin;
         [SerializeField] GameObject gameSetLose;
