@@ -18,8 +18,9 @@ namespace Turn
         public static bool playerTurn = false;
         public static int turnCount = 0;
 
-        [SerializeField] bool debugFlg = false;
-        [SerializeField] GameObject yourTurnUI;
+        [SerializeField] private bool debugFlg = false;
+        [SerializeField] private GameObject yourTurnUI;
+        [SerializeField] private GameObject darkZone;
 
         //[SerializeField] private GameObject startSummonArea;
 
@@ -39,6 +40,7 @@ namespace Turn
             Debug.Log(playerTurn);
 
             if (playerTurn) Instantiate(yourTurnUI);
+            else darkZone.transform.localEulerAngles = new Vector3(0, 0, 180);
         }
 
         void Update()
@@ -62,6 +64,13 @@ namespace Turn
             }
             turnCount++;
             Debug.Log(turnCount + "É^Å[Éìñ⁄");
+
+            darkZone.transform.localEulerAngles += new Vector3(0, 0, 180);
+
+            if (turnCount == 2)
+            {
+                darkZone.SetActive(false);
+            }
         }
 
 
