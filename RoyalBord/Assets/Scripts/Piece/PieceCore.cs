@@ -87,7 +87,7 @@ namespace Piece
             handWall_Child = handWall.gameObject.transform.GetChild(0);
 
             // “G‚ÌèD‚Ì•Çæ“¾
-            enemyHandWall = GameObject.Find("Enemy_Hand_Wall");
+            enemyHandWall       = GameObject.Find("Enemy_Hand_Wall");
             enemyHandWall_Child = enemyHandWall.gameObject.transform.GetChild(0);
 
 
@@ -135,14 +135,37 @@ namespace Piece
                     }
                     break;
 
-                // –¡•û‚Ì•Ç‚Ìê‡
-                case "HandPiece":
-                    objName = "Hand_WallPiece";
+                // èD‚Ì•Ç‚ğ”ñ•\¦‚É‚·‚é(–¡•û)
+                case "PlayerWall":
+                    if (GameSetManager.loseCount == 1)
+                    {
+                        ActivePlayerWall(GameSetManager.loseCount, false);
+                    }
+                    else if (GameSetManager.loseCount == 2)
+                    {
+                        ActivePlayerWall(GameSetManager.loseCount, false);
+                    }
+                    else if (GameSetManager.loseCount == 3)
+                    {
+                        ActivePlayerWall(GameSetManager.loseCount, false);
+                    }
                     break;
 
-                // “G‚Ì•Ç‚Ìê‡
+                // èD‚Ì•Ç‚ğ”ñ•\¦‚É‚·‚é(“G)
                 case "EnemyWall":
-                    objName = "Hand_WallPiece";
+                    if(enemyWallCount == 1)
+                    {
+                        ActiveEnemyWall(enemyWallCount, false);
+                    }
+                    if (enemyWallCount == 2)
+                    {
+                        ActiveEnemyWall(enemyWallCount, false);
+                    }
+                    if (enemyWallCount == 3)
+                    {
+                        ActiveEnemyWall(enemyWallCount, false);
+                    }
+
                     break;
 
                 // ‚»‚êˆÈŠO
@@ -156,6 +179,8 @@ namespace Piece
 
             // èD‚ÌƒRƒ}‚ğÁ–ÅH
             Destroy(obj);
+
+            
 
         }
 

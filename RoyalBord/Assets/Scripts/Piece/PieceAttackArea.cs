@@ -28,7 +28,7 @@ namespace Piece
         }
 
         // ëSÉ}ÉXçUåÇ
-        int[,] attackAreaKnight = new int[,] { { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, 1 }, { -1, 1 }, { -1, 0 }, { -1, -1 } };
+        int[,] attackAreaKnight = new int[,] { { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, -1 }, { -1, 1 }, { -1, 0 }, { -1, -1 } };
         public int[,] AttackAreaKnight
         {
             get
