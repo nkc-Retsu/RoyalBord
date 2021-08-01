@@ -135,17 +135,38 @@ namespace Piece
                     }
                     break;
 
-                //case "HandPiece":
-                //    if(GameSetManager.loseCount == 1)
-                //    {
+                // ŽèŽD‚Ì•Ç‚ð”ñ•\Ž¦‚É‚·‚é(–¡•û)
+                case "PlayerWall":
+                    if (GameSetManager.loseCount == 1)
+                    {
+                        ActivePlayerWall(GameSetManager.loseCount, false);
+                    }
+                    else if (GameSetManager.loseCount == 2)
+                    {
+                        ActivePlayerWall(GameSetManager.loseCount, false);
+                    }
+                    else if (GameSetManager.loseCount == 3)
+                    {
+                        ActivePlayerWall(GameSetManager.loseCount, false);
+                    }
+                    break;
 
-                //    }
-                //    else if (GameSetManager.loseCount == 2)
-                //    {
+                // ŽèŽD‚Ì•Ç‚ð”ñ•\Ž¦‚É‚·‚é(“G)
+                case "EnemyWall":
+                    if(enemyWallCount == 1)
+                    {
+                        ActiveEnemyWall(enemyWallCount, false);
+                    }
+                    if (enemyWallCount == 2)
+                    {
+                        ActiveEnemyWall(enemyWallCount, false);
+                    }
+                    if (enemyWallCount == 3)
+                    {
+                        ActiveEnemyWall(enemyWallCount, false);
+                    }
 
-                //    }
-                //    else if(GameSetManager.loseCount == 3)
-                //    break;
+                    break;
 
                 // ‚»‚êˆÈŠO
                 default:
