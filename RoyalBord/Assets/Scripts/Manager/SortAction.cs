@@ -78,6 +78,7 @@ namespace Manager
                     Debug.Log(attackAreaArr);
                     if (AreaCheck(attackAreaArr, pos1, pos2))
                     {
+                        Debug.Log("çUåÇÇµÇ‹Ç∑ÇÊÅ`");
                         photonView.RPC(nameof(AttackBridge), RpcTarget.Others, 4-pos1_x, 4-pos1_y, 4-pos2_x, 4-pos2_y);
                         attack.AttackAction(selectObj1, selectObj2);
                     }
