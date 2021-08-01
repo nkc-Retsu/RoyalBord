@@ -36,7 +36,7 @@ public class GameSetCon : MonoBehaviour
 
         if(backAct)
         {
-            backKey.SetActive(true);
+            //backKey.SetActive(true);
         }
     }
 

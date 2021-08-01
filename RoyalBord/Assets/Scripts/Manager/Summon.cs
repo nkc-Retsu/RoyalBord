@@ -35,8 +35,13 @@ public class Summon : MonoBehaviour
 
         startSummonCount = 0;
 
-        Instantiate(redPieceArr[0]).transform.position= new Vector3(posArrX[0], posArrY[0], -1);
-        Instantiate(bluePieceArr[0]).transform.position= new Vector3(posArrX[4], posArrY[4], -1);
+        GameObject playerKing = Instantiate(redPieceArr[0]);
+        playerKing.transform.position = new Vector3(posArrX[0], posArrY[0], -1);
+        playerKing.GetComponent<ISetPos>().SetPos(new Vector2(0,0));
+
+        GameObject enemyKing = Instantiate(bluePieceArr[0]);
+        enemyKing.transform.position = new Vector3(posArrX[4], posArrY[4], -1);
+        enemyKing.GetComponent<ISetPos>().SetPos(new Vector2(4, 4));
     }
 
     public void SummonAction(GameObject selectObj1,GameObject selectObj2)

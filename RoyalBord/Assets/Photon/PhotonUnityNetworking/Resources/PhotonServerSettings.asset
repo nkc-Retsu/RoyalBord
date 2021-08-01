@@ -16,7 +16,7 @@ MonoBehaviour:
     AppIdRealtime: PhotonTest
     AppIdChat: 
     AppIdVoice: 
-    AppVersion: 
+    AppVersion: 1
     UseNameServer: 0
     FixedRegion: 
     Server: 192.168.10.103

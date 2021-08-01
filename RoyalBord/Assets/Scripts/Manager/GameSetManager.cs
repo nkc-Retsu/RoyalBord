@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Turn;
 
 namespace Manager
 {
@@ -9,11 +10,19 @@ namespace Manager
         // ƒRƒ}‚ª€‚ñ‚¾”‚ğ‚Á‚Ä‚¢‚é•Ï”
         public static int loseCount;
 
-        [SerializeField] GameObject gameSet;
+        [SerializeField] GameObject gameSetWin;
+        [SerializeField] GameObject gameSetLose;
 
         public void GameSet()
         {
-            Instantiate(gameSet);
+            if (TurnManager.playerTurn)
+            {
+                Instantiate(gameSetWin);
+            }
+            else
+            {
+                Instantiate(gameSetLose);
+            }
         }
     }
 
