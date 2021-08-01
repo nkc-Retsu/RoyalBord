@@ -3573,6 +3573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugFlg: 1
   yourTurnUI: {fileID: 7790338619601803991, guid: 1b5c515611cea9447b8f6517543fd963, type: 3}
+  darkZone: {fileID: 1749560207}
 --- !u!4 &1257223358
 Transform:
   m_ObjectHideFlags: 0
@@ -5368,7 +5369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1749560208
 SpriteRenderer:
   m_ObjectHideFlags: 0

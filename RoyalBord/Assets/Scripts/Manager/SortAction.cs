@@ -4,6 +4,7 @@ using UnityEngine;
 using Bridge;
 using Photon.Pun;
 using Photon.Realtime;
+using Turn;
 
 
 namespace Manager
@@ -58,6 +59,7 @@ namespace Manager
                 //SummonBridge(pieceType,pos2_x,pos2_y);
             }
 
+            if (TurnManager.turnCount < 2) return;
 
             if (selectObj1.tag == "PlayerPiece")
             {
