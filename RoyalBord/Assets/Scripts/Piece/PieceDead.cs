@@ -42,7 +42,7 @@ namespace Piece
                 sr.material.color = sr.material.color - new Color32(0,0,0,1);
                 
                 // 0.01•b‘Ò‚Â
-                yield return new WaitForSeconds(0.0001f);
+                yield return new WaitForSeconds(0.00001f);
             }
 
             // GameObject‚ÌsetActive‚ğÁ‚·
