@@ -40,5 +40,6 @@ MonoBehaviour:
   - SummonBridge
   - Surrender
   - TurnChangeRPC
+  - firstTurnSwitch
   DisableAutoOpenWizard: 1
   ShowSettings: 1

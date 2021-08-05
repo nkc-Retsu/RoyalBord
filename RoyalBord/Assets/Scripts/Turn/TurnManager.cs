@@ -44,7 +44,7 @@ namespace Turn
         void Start()
         {
             playerNameText.text = PhotonNetwork.NickName;
-            enemyNameText.text = (Matching.hostFlg) ? PhotonNetwork.PlayerList[1].NickName:PhotonNetwork.PlayerList[0].NickName;
+            enemyNameText.text = (Matching.hostFlg) ? PhotonNetwork.PlayerList[1].NickName : PhotonNetwork.PlayerList[0].NickName;
 
             turnCount = 0;
 
@@ -53,7 +53,11 @@ namespace Turn
                 playerTurn = Matching.playerTurn;
                 if (!playerTurn)
                 {
-                    photonView.RPC(nameof(TurnChangeRPC), RpcTarget.Others);
+                    photonView.RPC(nameof(firstTurnSwitch), RpcTarget.Others);
+                    Instantiate(enemyTurnUI);
+                    playerThinkingIcon.SetActive(false);
+                    enemyThinkingIcon.SetActive(true);
+                    inputFlg = false;
                 }
             }
 
@@ -63,7 +67,7 @@ namespace Turn
             {
                 Instantiate(yourTurnUI);
                 inputFlg = true;
-            } 
+            }
             else darkZone.transform.localEulerAngles = new Vector3(0, 0, 180);
         }
 
@@ -171,6 +175,17 @@ namespace Turn
         {
             manager.GetComponent<GameSetManager>().GameSetWin();
             SetGameSetFlg();
+        }
+
+        [PunRPC]
+        private void firstTurnSwitch()
+        {
+            playerTurn = true;
+            Instantiate(yourTurnUI);
+            playerThinkingIcon.SetActive(true);
+            enemyThinkingIcon.SetActive(false);
+            inputFlg = true;
+            darkZone.transform.localEulerAngles += new Vector3(0, 0, 180);
         }
     }
 }
