@@ -33,11 +33,19 @@ namespace Turn
         [SerializeField] private Image enemyTimeGuage;
         [SerializeField] private Text timerCountText;
 
+        [SerializeField] private Text playerNameText;
+        [SerializeField] private Text enemyNameText;
+        [SerializeField] private GameObject playerThinkingIcon;
+        [SerializeField] private GameObject enemyThinkingIcon;
+
         private bool gameSetFlg = false;
         public static bool inputFlg = true;
 
         void Start()
         {
+            playerNameText.text = PhotonNetwork.NickName;
+            enemyNameText.text = (Matching.hostFlg) ? PhotonNetwork.PlayerList[1].NickName:PhotonNetwork.PlayerList[0].NickName;
+
             turnCount = 0;
 
             if (Matching.hostFlg)
@@ -105,11 +113,15 @@ namespace Turn
             if (playerTurn)
             {
                 Instantiate(yourTurnUI);
+                playerThinkingIcon.SetActive(true);
+                enemyThinkingIcon.SetActive(false);
                 inputFlg = true;
             }
             else
             {
                 Instantiate(enemyTurnUI);
+                playerThinkingIcon.SetActive(false);
+                enemyThinkingIcon.SetActive(true);
                 inputFlg = false;
             }
             turnCount++;
@@ -143,6 +155,8 @@ namespace Turn
 
         public void SurrenderButton()
         {
+            if (gameSetFlg) return;
+
             photonView.RPC(nameof(Surrender), RpcTarget.Others);
             manager.GetComponent<GameSetManager>().GameSetLose();
             SetGameSetFlg();

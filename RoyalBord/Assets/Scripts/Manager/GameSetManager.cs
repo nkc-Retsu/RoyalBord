@@ -17,6 +17,9 @@ namespace Manager
         [SerializeField] private TurnManager turnManager;
         [SerializeField] private GameObject gameSetWin;
         [SerializeField] private GameObject gameSetLose;
+        [SerializeField] private GameObject returnButton;
+
+        [SerializeField] private GameObject fadeCloud;
 
         public void GameSet()
         {
@@ -45,6 +48,7 @@ namespace Manager
         {
             turnManager.GetComponent<IGameSetFlgSettable>().SetGameSetFlg();
             Instantiate(gameSetWin);
+            returnButton.SetActive(true);
             Debug.Log("èüÇø!!!!!");
         }
 
@@ -52,7 +56,13 @@ namespace Manager
         {
             turnManager.GetComponent<IGameSetFlgSettable>().SetGameSetFlg();
             Instantiate(gameSetLose);
+            returnButton.SetActive(true);
             Debug.Log("ïâÇØ!!!!!");
+        }
+
+        public void OnReturnButton()
+        {
+            fadeCloud.SetActive(true);
         }
     }
 
