@@ -17,8 +17,10 @@ GameObject:
   - component: {fileID: 3602149011200464723}
   - component: {fileID: -5062043990449368512}
   - component: {fileID: 1238982635023667559}
+  - component: {fileID: -8119918651623125447}
   - component: {fileID: -5163194717599498604}
   - component: {fileID: 5348640794442640542}
+  - component: {fileID: 694829530381742888}
   m_Layer: 0
   m_Name: Enemy_Piece_Archer
   m_TagString: EnemyPiece
@@ -202,6 +204,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c3b5ff16fee3b498d513c0326fed10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8119918651623125447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3602149011200464725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16123647f111f1f41be29d911c737bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectSelectNum: 1
+  KingDamagedEffect: {fileID: 1170234345881857230, guid: 09c595c5eab87bf4a9c2abdfb513af90, type: 3}
+  defaultDamagedEffect: {fileID: 7634276984792132685, guid: 739b7201618b0e542a36a91d1ebdb31f, type: 3}
+  SheilderDamagedEffect: {fileID: 313618653440071695, guid: 03af2896ed6f72743b3a61ede5084605, type: 3}
+  WallDamagedEffect: {fileID: 313618653440071695, guid: 03af2896ed6f72743b3a61ede5084605, type: 3}
 --- !u!114 &-5163194717599498604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +246,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -311,3 +330,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &694829530381742888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3602149011200464725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb89a517acca0548a6f6345bc81f21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defautSE: {fileID: 8300000, guid: 7e9eb60e32694484481baf3105b22a2e, type: 3}
+  shelderSE: {fileID: 8300000, guid: 89f773d6fb7c7044188cf9c76c459c2f, type: 3}
+  wallSE: {fileID: 8300000, guid: 8f0c1cff97be7fb4ab3936447d4ba5b8, type: 3}

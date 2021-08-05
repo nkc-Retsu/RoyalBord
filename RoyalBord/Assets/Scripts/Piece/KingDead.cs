@@ -36,7 +36,7 @@ namespace Piece
             sr.color = new Color(0f, 0f, 0f, 0.5f);
 
             // 2•b‘Ò‚Â@(‚±‚¤‚·‚é‚ÆŒ‹‹ÇÁ‚¦‚é‚©‚çˆÓ–¡‚È‚µH)
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
 
             // GameObject‚ÌsetActive‚ğÁ‚·
             gameObject.SetActive(false);
