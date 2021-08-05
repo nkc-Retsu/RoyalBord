@@ -67,27 +67,18 @@ namespace Inputer
             {
                 if (ClickLeft())
                 {
-
                     // キャラ選択 or フィールド選択
                     SelectObj();
 
+                    // 1回目の選択が味方のコマの場合
                     if (holdObj.ClickObj.gameObject.tag == "PlayerPiece")
                     {
-                        if (ClickObj.gameObject.tag == "Field" || ClickObj.gameObject.tag == "EnemyPiece")
-                        {
-                            // 矢印のオブジェクトを取得
-                            pieceChild = holdObj.ClickObj.transform.GetChild(0).gameObject;
-
-                            // 矢印の表示を消す
-                            pieceChild.gameObject.SetActive(false);
-
-                        }
+                        pieceChild.gameObject.SetActive(false);
                     }
 
                     // 何も取得していない時は早期リターン
                     if (clickedObj == null)
                     {
-                        pieceChild.gameObject.SetActive(false);
                         return;
                     }
                     // 同じ駒を選択した場合は選択解除
@@ -132,11 +123,6 @@ namespace Inputer
                         // 矢印の表示
                         pieceChild.gameObject.SetActive(true);
                     }
-                    else if (holdObj.gameObject.tag == "HandPiece")
-                    {
-                        //handPieceCore = holdObj.GetComponent<HandPieceCore>();
-                        //MousehandPiece = holdObj.ClickObj; 
-                    }
 
                     // フラグを変更
                     selecrFlg = true;
@@ -165,8 +151,6 @@ namespace Inputer
                 // 何も取得していない時は早期リターン
                 if (clickedObj == null) return;
 
-                // 名前を表示
-                Debug.Log("select2 " + clickedObj);
             }
 
         }

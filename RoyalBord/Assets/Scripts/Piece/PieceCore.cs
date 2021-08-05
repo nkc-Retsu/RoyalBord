@@ -34,6 +34,7 @@ namespace Piece
         private PieceDead pieceDead;
         private KingDead kingDead;
         private PieceDamageSE pieceDamageSE;
+        private PieceEffectDirector pieceEffectDirector;
 
         // 変更用HP変数
         private int hp;
@@ -67,8 +68,12 @@ namespace Piece
             }
         }
 
+
+        // 味方の壁手札表示用
+        private static int playerWallCount = 0;
+
         // 敵の壁手札表示用変数
-        private static int enemyWallCount;
+        private static int enemyWallCount = 0;
 
 
 
@@ -76,12 +81,13 @@ namespace Piece
         private void Start()
         {
             // コンポーネント取得
-            sr 　　         = GetComponent<SpriteRenderer>();
-            pieceAttackArea = GetComponent<PieceAttackArea>();
-            pieceMoveArea   = GetComponent<PieceMoveArea>();
-            pieceDead       = GetComponent<PieceDead>();
-            kingDead        = GetComponent<KingDead>();
-            pieceDamageSE   = GetComponent<PieceDamageSE>();
+            sr                  = GetComponent<SpriteRenderer>();
+            pieceAttackArea     = GetComponent<PieceAttackArea>();
+            pieceMoveArea       = GetComponent<PieceMoveArea>();
+            pieceDead           = GetComponent<PieceDead>();
+            kingDead            = GetComponent<KingDead>();
+            pieceDamageSE       = GetComponent<PieceDamageSE>();
+            pieceEffectDirector = GetComponent<PieceEffectDirector>();
 
 
             // 手札の壁取得
@@ -89,7 +95,7 @@ namespace Piece
             handWall_Child = handWall.gameObject.transform.GetChild(0);
 
             // 敵の手札の壁取得
-            enemyHandWall       = GameObject.Find("Enemy_Hand_Wall");
+            enemyHandWall = GameObject.Find("Enemy_Hand_Wall");
             enemyHandWall_Child = enemyHandWall.gameObject.transform.GetChild(0);
 
 
@@ -97,10 +103,11 @@ namespace Piece
             hp = pieceStatus.hp;
             this.pieceType = pieceStatus.pieceType;
 
+
             // コマの名前変数
             string objName = null;
 
-         
+
 
             // コマのタグによって処理を変更
             switch (gameObject.tag)
@@ -139,34 +146,14 @@ namespace Piece
 
                 // 手札の壁を非表示にする(味方)
                 case "PlayerWall":
-                    if (GameSetManager.playerLoseCount == 1)
-                    {
-                        ActivePlayerWall(GameSetManager.playerLoseCount, false);
-                    }
-                    else if (GameSetManager.playerLoseCount == 2)
-                    {
-                        ActivePlayerWall(GameSetManager.playerLoseCount, false);
-                    }
-                    else if (GameSetManager.playerLoseCount == 3)
-                    {
-                        ActivePlayerWall(GameSetManager.playerLoseCount, false);
-                    }
+                    ActivePlayerWall(playerWallCount, false);
+                    playerWallCount--;
                     break;
 
                 // 手札の壁を非表示にする(敵)
                 case "EnemyWall":
-                    if(GameSetManager.enemyLoseCount == 1)
-                    {
-                        ActiveEnemyWall(GameSetManager.enemyLoseCount, false);
-                    }
-                    if (GameSetManager.enemyLoseCount == 2)
-                    {
-                        ActiveEnemyWall(GameSetManager.enemyLoseCount, false);
-                    }
-                    if (GameSetManager.enemyLoseCount == 3)
-                    {
-                        ActiveEnemyWall(GameSetManager.enemyLoseCount, false);
-                    }
+                    ActiveEnemyWall(enemyWallCount, false);
+                    enemyWallCount--;
                     break;
 
                 // それ以外
@@ -181,9 +168,8 @@ namespace Piece
             // 手札のコマを消滅？
             Destroy(obj);
 
-            
-
         }
+
 
 
         // ----- HP処理 -----
@@ -213,43 +199,47 @@ namespace Piece
 
                     // それ以外
                     default:
+                        pieceDamageSE.DamagedSE_Wall(); // SE再生
                         pieceDead.Dead();
                         Debug.Log("それ以外");
                         break;
                 }
 
-                //// ゲーム終了処理呼び出し
-                //GameSet();
-                //Debug.Log("ゲームセット呼び出し");
-
             }
             // 壁と盾兵にヒビをいれる
-            else if(hp == 1)
+            else if (hp == 1)
             {
                 switch (gameObject.tag)
                 {
                     // 味方の場合
                     case "PlayerPiece":
-                        // sprite変更
-                        pieceDamagedClack(shieldCrack_Player);
-                        pieceDamageSE.DamagedSE_Sheilder();
+                        pieceDamagedClack(shieldCrack_Player);// sprite変更
+                        pieceDamageSE.DamagedSE_Sheilder();   // SE再生
+                        pieceEffectDirector.EffectGenerator();// エフェクト生成
+
+
                         break;
 
                     // 敵の場合
                     case "EnemyPiece":
-            　　　　　　// sprite変更
-                        pieceDamagedClack(shieldCrack_Enemy);
-                        pieceDamageSE.DamagedSE_Sheilder();
+                        pieceDamagedClack(shieldCrack_Enemy); // sprite変更
+                        pieceDamageSE.DamagedSE_Sheilder();   // SE再生
+                        pieceEffectDirector.EffectGenerator();// エフェクト生成
+
                         break;
 
                     // 味方の壁の場合
                     case "PlayerWall":
-                        pieceDamagedClack(shieldCrack_Player);
+                        pieceDamagedClack(shieldCrack_Player);// sprite変更
+                        pieceDamageSE.DamagedSE_Wall();       // SE再生
+                        pieceEffectDirector.EffectGenerator();// エフェクト生成
                         break;
 
                     // 敵の壁の場合
                     case "EnemyWall":
-                        pieceDamagedClack(shieldCrack_Enemy);
+                        pieceDamagedClack(shieldCrack_Enemy);// sprite変更
+                        pieceDamageSE.DamagedSE_Wall();      // SE再生
+                        pieceEffectDirector.EffectGenerator();// エフェクト生成
                         break;
 
                     // それ以外
@@ -276,7 +266,11 @@ namespace Piece
             // キングの場合
             if (pieceType == 0)
             {
+                // SE再生
                 pieceDamageSE.DamagedSE_Defaut();
+
+                // エフェクト生成
+                pieceEffectDirector.EffectGenerator();
 
                 // キングが死んだとき処理呼び出し
                 kingDead.Dead();
@@ -286,28 +280,71 @@ namespace Piece
                 // 3になったら負ける変数を増やす
                 GameSetManager.playerLoseCount = 3;
 
+                // 壁表示変数を増やす(味方用)
+                playerWallCount = 3;
+
                 // ゲーム終了処理呼び出し
                 GameSet();
 
-                Debug.Log("味方の"+"ライフ" + GameSetManager.playerLoseCount);
+                Debug.Log("味方の" + "ライフ" + GameSetManager.playerLoseCount);
             }
             // 壁の場合
             else if (pieceType == 4)
             {
-                pieceDamageSE.DamagedSE_Defaut();
-                Debug.Log("壁は壁を生成しないよ");
+                // SE再生
+                pieceDamageSE.DamagedSE_Wall();
+
+                // エフェクト生成
+                pieceEffectDirector.EffectGenerator();
+
+            }
+            else if(pieceType == 2)
+            {
+                // SE再生
+                pieceDamageSE.DamagedSE_Sheilder();
+
+                // エフェクト生成
+                pieceEffectDirector.EffectGenerator();
+
+
+                // コマが死んだとき処理呼び出し
+                pieceDead.Dead();
+
+                // 3になったら負ける変数を増やす
+                GameSetManager.playerLoseCount++;
+
+                // 壁表示変数を増やす(味方用)
+                playerWallCount++;
+
+                // 壁を表示
+                ActivePlayerWall(playerWallCount, true);
+
+                //ゲーム終了処理呼び出し
+                GameSet();
+
+                Debug.Log("味方の" + "ライフ" + GameSetManager.playerLoseCount);
+
             }
             // それ以外
             else
             {
+                // SE再生
+                pieceDamageSE.DamagedSE_Defaut();
+
+                // エフェクト生成
+                pieceEffectDirector.EffectGenerator();
+
                 // コマが死んだとき処理呼び出し
                 pieceDead.Dead();
-                
+
                 // 3になったら負ける変数を増やす
                 GameSetManager.playerLoseCount++;
 
+                // 壁表示変数を増やす(味方用)
+                playerWallCount++;
+
                 // 壁を表示
-                ActivePlayerWall(GameSetManager.playerLoseCount, true);
+                ActivePlayerWall(playerWallCount, true);
 
                 //ゲーム終了処理呼び出し
                 GameSet();
@@ -323,11 +360,20 @@ namespace Piece
             // キングの場合
             if (pieceType == 0)
             {
+                // SE再生
+                pieceDamageSE.DamagedSE_Defaut();
+
+                // エフェクト生成
+                pieceEffectDirector.EffectGenerator();
+
                 // キングが死んだとき処理呼び出し
                 kingDead.Dead();
 
                 // 3になったら負ける変数を増やす
                 GameSetManager.enemyLoseCount = 3;
+
+                // 壁表示変数を増やす(敵用)
+                enemyWallCount = 3;
 
                 Debug.Log("敵のキング死亡");
 
@@ -338,19 +384,33 @@ namespace Piece
             // 壁の場合
             else if (pieceType == 4)
             {
-                Debug.Log("壁は壁を生成しないよ");
+                // SE再生
+                pieceDamageSE.DamagedSE_Wall();
+
+                // エフェクト生成
+                pieceEffectDirector.EffectGenerator();
+
             }
             // それ以外
             else
             {
+                // SE再生
+                pieceDamageSE.DamagedSE_Defaut();
+
+                // エフェクト生成
+                pieceEffectDirector.EffectGenerator();
+
                 // コマが死んだとき処理呼び出し
                 pieceDead.Dead();
 
                 // 敵の手札壁表示用変数
                 GameSetManager.enemyLoseCount++;
-                
+
+                // 壁表示変数を増やす(敵用)
+                enemyWallCount++;
+
                 // 壁を表示
-                ActiveEnemyWall(GameSetManager.enemyLoseCount, true);
+                ActiveEnemyWall(enemyWallCount, true);
 
                 //ゲーム終了処理呼び出し
                 GameSet();
@@ -366,7 +426,7 @@ namespace Piece
             {
                 // 画像を変更
                 sr.sprite = sprite;
-                
+
             }
             else if (pieceType == 4)
             {
@@ -378,7 +438,7 @@ namespace Piece
 
 
 
-        // ----- 範囲処理 -----
+        // ----- Mangerに送る情報処理 -----
 
         // 攻撃範囲インターフェース
         public int[,] GetAttackArea()
@@ -432,7 +492,6 @@ namespace Piece
 
 
 
-
         // コマの位置情報を送るインターフェース
         public Vector2 GetPos()
         {
@@ -464,12 +523,15 @@ namespace Piece
             }
             else
             {
-                
+
                 return false;
             }
         }
 
 
+
+
+        // ----- 手札壁表示処理 -----
 
         // 手札の壁を表示する処理
         private void ActivePlayerWall(int n, bool activeFlg)
@@ -477,7 +539,6 @@ namespace Piece
             handWall_Child = handWall.gameObject.transform.GetChild(n);
             handWall_Child.gameObject.SetActive(activeFlg);
         }
-
 
 
         // 敵の手札の壁を表示(引数になんの値を入れるのか)
