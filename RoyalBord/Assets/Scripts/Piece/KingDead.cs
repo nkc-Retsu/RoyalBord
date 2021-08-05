@@ -25,6 +25,8 @@ namespace Piece
         // 死んだとき処理
         public void Dead()
         {
+            sr.material.color = sr.material.color - new Color32(0, 0, 0, 0);
+
             // コルーチン呼び出し
             StartCoroutine("FadeClear");
         }
@@ -32,11 +34,14 @@ namespace Piece
         // 透明にする処理
         IEnumerator FadeClear()
         {
-            // フェードで消える
-            sr.color = new Color(0f, 0f, 0f, 0.5f);
 
-            // 2秒待つ　(こうすると結局消えるから意味なし？)
-            yield return new WaitForSeconds(1.5f);
+            for (int i = 0; i < 255; ++i)
+            {
+                sr.material.color = sr.material.color - new Color32(0, 0, 0, 1);
+
+                // 0.01秒待つ
+                yield return new WaitForSeconds(0.01f);
+            }
 
             // GameObjectのsetActiveを消す
             gameObject.SetActive(false);
