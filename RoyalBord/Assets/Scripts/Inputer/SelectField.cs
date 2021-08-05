@@ -17,6 +17,9 @@ namespace Inputer
         [SerializeField] private GameObject archerSpriteObj;
         [SerializeField] private GameObject wallSpriteObj;
 
+        private GameObject cursurObj;
+
+
         // オブジェクト取得用変数
         private GameObject clickedObj;
         public GameObject ClickObj
@@ -56,7 +59,7 @@ namespace Inputer
         void Update()
         {
             // 入力受付
-            if (!TurnManager.playerTurn) return;
+            if (!TurnManager.inputFlg) return;
 
             // メソッド呼び出し
             InputClick();
@@ -187,17 +190,24 @@ namespace Inputer
             switch (holdObj.ClickObj.name)
             {
                 case "HandPiece_Knight":
-                    Instantiate(knightSpriteObj);
+                    cursurObj = Instantiate(knightSpriteObj);
                     break;
                 case "HandPiece_Shielder":
-                    Instantiate(sheilderSpriteObj);
+                    cursurObj = Instantiate(sheilderSpriteObj);
                     break;
                 case "HandPiece_Archer":
-                    Instantiate(archerSpriteObj);
+                    cursurObj = Instantiate(archerSpriteObj);
                     break;
                 case "Hand_WallPiece":
-                    Instantiate(wallSpriteObj);
+                    cursurObj = Instantiate(wallSpriteObj);
                     break;
+                case "Hand_WallPiece (1)":
+                    cursurObj = Instantiate(wallSpriteObj);
+                    break;
+                case "Hand_WallPiece (2)":
+                    cursurObj = Instantiate(wallSpriteObj);
+                    break;
+
             }
         }
 
@@ -207,21 +217,24 @@ namespace Inputer
             switch (holdObj.ClickObj.name)
             {
                 case "HandPiece_Knight":
-                    Debug.Log("ナイトを撃破!!!!");
-                    knightSpriteObj.gameObject.SetActive(false);
+                    cursurObj.gameObject.SetActive(false);
                     break;
                 case "HandPiece_Shielder":
-                    Debug.Log("シールダーを撃破!!!!");
-                    sheilderSpriteObj.gameObject.SetActive(false);
+                    cursurObj.gameObject.SetActive(false);
                     break;
                 case "HandPiece_Archer":
-                    Debug.Log("アーチャーを撃破!!!!");
-                    archerSpriteObj.gameObject.SetActive(false);
+                    cursurObj.gameObject.SetActive(false);
                     break;
                 case "Hand_WallPiece":
-                    Debug.Log("壁を撃破!!!!");
-                    wallSpriteObj.gameObject.SetActive(false);
+                    cursurObj.gameObject.SetActive(false);
                     break;
+                case "Hand_WallPiece (1)":
+                    cursurObj.gameObject.SetActive(false);
+                    break;
+                case "Hand_WallPiece (2)":
+                    cursurObj.gameObject.SetActive(false);
+                    break;
+
             }
         }
 
