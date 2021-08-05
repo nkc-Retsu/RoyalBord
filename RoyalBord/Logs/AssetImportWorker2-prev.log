@@ -1,0 +1,191 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.12f1 (b3b2c6512326) revision 11776710'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.1110; Version 2009; 64bit' Language: 'ja' Physical Memory: 8048 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.12f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/user/Desktop/RoyalBord/RoyalBord
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+59484
+Successfully changed project path to: C:/Users/user/Desktop/RoyalBord/RoyalBord
+C:/Users/user/Desktop/RoyalBord/RoyalBord
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 214.04 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.12f1 (b3b2c6512326)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/user/Desktop/RoyalBord/RoyalBord/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) UHD Graphics 620 (ID=0x5917)
+    Vendor:   
+    VRAM:     4024 MB
+    Driver:   27.20.100.7988
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56376
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.014815 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 281.22 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.218 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.019897 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 146.76 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in 18.576 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
+Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2504 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 107.2 MB.
+System memory in use after: 107.4 MB.
+
+Unloading 35 unused Assets to reduce memory usage. Loaded Objects now: 2942.
+Total: 4.494800 ms (FindLiveObjects: 0.295100 ms CreateObjectMapping: 0.141000 ms MarkObjects: 3.925100 ms  DeleteObjects: 0.131500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Prefabs/Hand_Piece/Player/HandPiece_Archer.prefab
+  artifactKey: Guid(9863eea8077d6c945b2ca8932d222f8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Hand_Piece/Player/HandPiece_Archer.prefab using Guid(9863eea8077d6c945b2ca8932d222f8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0545f92a1b1ba9e839af022d96b16f5') in 0.406768 seconds 
+  Import took 0.418962 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000522 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_Piece_Red/Player_Piece_Shielder.prefab
+  artifactKey: Guid(e20631968778f114bb8d9896340b0511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_Piece_Red/Player_Piece_Shielder.prefab using Guid(e20631968778f114bb8d9896340b0511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48fd59f2e3359e0de98c9cd95d93d5d9') in 0.044479 seconds 
+  Import took 0.058354 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000657 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_Piece_Blue/Enemy_Piece_Shielder.prefab
+  artifactKey: Guid(c4ff42a93b334ae4a8f2e6ef8b34b407) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_Piece_Blue/Enemy_Piece_Shielder.prefab using Guid(c4ff42a93b334ae4a8f2e6ef8b34b407) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e101c2fe10cf846ec37b000dd21055f6') in 0.033772 seconds 
+  Import took 0.043716 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000528 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_WallPiece_Player.prefab
+  artifactKey: Guid(4ef19717a78f462458e8d0d738063af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_WallPiece_Player.prefab using Guid(4ef19717a78f462458e8d0d738063af6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '133e71a76974ff1608c5ad53fc2c1037') in 0.030196 seconds 
+  Import took 0.041561 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000355 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_Piece_Red/Player_Piece_King.prefab
+  artifactKey: Guid(7a21cd53ad3b1654faca11c3c0e143f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_Piece_Red/Player_Piece_King.prefab using Guid(7a21cd53ad3b1654faca11c3c0e143f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c8c2b726c8c57a520d82eb68af65c92') in 0.030647 seconds 
+  Import took 0.038555 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000371 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_Piece_Red/Player_Piece_Knight.prefab
+  artifactKey: Guid(3591676e1e5f9cd42b837ec5fd4a4ec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_Piece_Red/Player_Piece_Knight.prefab using Guid(3591676e1e5f9cd42b837ec5fd4a4ec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dbb3ae428ea02e220bd6e44d0c287a6') in 0.033492 seconds 
+  Import took 0.044174 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000507 seconds.
+  path: Assets/Prefabs/Hand_Piece/Enemy/Enemy_HandPiece_knight.prefab
+  artifactKey: Guid(5a7cbf69455a6f641ab403a77eb324a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Hand_Piece/Enemy/Enemy_HandPiece_knight.prefab using Guid(5a7cbf69455a6f641ab403a77eb324a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '901e48097328206ed346d62b6efe7e54') in 0.029202 seconds 
+  Import took 0.036174 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000505 seconds.
+  path: Assets/Prefabs/Hand_Piece/Player/HandPiece_King.prefab
+  artifactKey: Guid(c0bed712fa7c10948b7024695745febf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Hand_Piece/Player/HandPiece_King.prefab using Guid(c0bed712fa7c10948b7024695745febf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bc02b171f999cd45a74154ba314e480') in 0.029693 seconds 
+  Import took 0.041372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000415 seconds.
+  path: Assets/Prefabs/Hand_Piece/Enemy/Enemy_HandPiece_Archer.prefab
+  artifactKey: Guid(7f3986afdd0e96f489e8a6edf72ec94f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Hand_Piece/Enemy/Enemy_HandPiece_Archer.prefab using Guid(7f3986afdd0e96f489e8a6edf72ec94f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b9c1154d2429ec84baa065565f5f2ca') in 0.037097 seconds 
+  Import took 0.045811 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_Piece_Blue/Enemy_Piece_Archer.prefab
+  artifactKey: Guid(2033a374c5ee8414498ee6e910d87f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_Piece_Blue/Enemy_Piece_Archer.prefab using Guid(2033a374c5ee8414498ee6e910d87f7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63d7c7fbaf24d3f40b194cce05ec6569') in 0.034210 seconds 
+  Import took 0.041964 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000329 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_Piece_Blue/Enemy_Piece_knight.prefab
+  artifactKey: Guid(44666b8fe82a107429096c86a0f261be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_Piece_Blue/Enemy_Piece_knight.prefab using Guid(44666b8fe82a107429096c86a0f261be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f2b341de941d14577c2a23c21a3ee12') in 0.032346 seconds 
+  Import took 0.040700 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000478 seconds.
+  path: Assets/Prefabs/Hand_Piece/Enemy/Enemy_HandPiece_King.prefab
+  artifactKey: Guid(94c2be5b3d8a8f547a020c95c45b5b04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Hand_Piece/Enemy/Enemy_HandPiece_King.prefab using Guid(94c2be5b3d8a8f547a020c95c45b5b04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d538154449fcdd891ecf10e2e11d042') in 0.035576 seconds 
+  Import took 0.044758 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000429 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_WallPiece_Enemy.prefab
+  artifactKey: Guid(21b7884edce7ccf489a4e5198e6f5331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_WallPiece_Enemy.prefab using Guid(21b7884edce7ccf489a4e5198e6f5331) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f109530ba51393d506984d788a523f8') in 0.034531 seconds 
+  Import took 0.046066 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000372 seconds.
+  path: Assets/Prefabs/Field_Piece/Field_Piece_Blue/Enemy_Piece_King.prefab
+  artifactKey: Guid(ae51c3471e0121348a58047d320e6ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Field_Piece/Field_Piece_Blue/Enemy_Piece_King.prefab using Guid(ae51c3471e0121348a58047d320e6ae2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8c9bbb1727db4ec778d6faf4e12edf3') in 0.031368 seconds 
+  Import took 0.043102 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
