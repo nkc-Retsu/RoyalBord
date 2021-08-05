@@ -12,6 +12,11 @@ namespace Inputer
     {
         // フィールド情報を取得する処理
 
+        [SerializeField] private GameObject knightSpriteObj;
+        [SerializeField] private GameObject sheilderSpriteObj;
+        [SerializeField] private GameObject archerSpriteObj;
+        [SerializeField] private GameObject wallSpriteObj;
+
         // オブジェクト取得用変数
         private GameObject clickedObj;
         public GameObject ClickObj
@@ -28,11 +33,11 @@ namespace Inputer
 
 
         // クラス変数
-        private SendData sendData;
-        private HoldObj holdObj;
-        private GameObject pieceChild;
+        private SendData      sendData;
+        private HoldObj       holdObj;
+        private GameObject    pieceChild;
         private HandPieceCore handPieceCore;
-        private GameObject MousehandPiece;
+        private GameObject    MousehandPiece;
 
 
         // 選択可能フラグ
@@ -67,12 +72,18 @@ namespace Inputer
             {
                 if (ClickLeft())
                 {
+                    Debug.Log("2回目");
+
+
                     // キャラ選択 or フィールド選択
                     SelectObj();
+
+                    HandPieceDestroy();
 
                     // 1回目の選択が味方のコマの場合
                     if (holdObj.ClickObj.gameObject.tag == "PlayerPiece")
                     {
+                        // コマの矢印を非表示
                         pieceChild.gameObject.SetActive(false);
                     }
 
@@ -96,6 +107,7 @@ namespace Inputer
                         // 1回目の選択に戻す
                         selecrFlg = false;
                     }
+              
 
                     // フラグを変更
                     selecrFlg = false;
@@ -110,8 +122,13 @@ namespace Inputer
             {
                 if (ClickLeft())
                 {
+
+                    Debug.Log("1回目");
+
                     // キャラ選択
                     holdObj.SelectObj();
+
+                    HandPieceGenerator();
 
                     // 何も取得していない時 + Fieldを選択したら早期リターン
                     if (holdObj.ClickObj == null || holdObj.ClickObj.gameObject.tag == "Field") return;
@@ -162,6 +179,51 @@ namespace Inputer
             return Input.GetMouseButtonDown(0);
         }
 
+
+
+        // 手札をクリックした時にカーソルに追従するオブジェクトを生成する処理
+        private void HandPieceGenerator()
+        {
+            switch (holdObj.ClickObj.name)
+            {
+                case "HandPiece_Knight":
+                    Instantiate(knightSpriteObj);
+                    break;
+                case "HandPiece_Shielder":
+                    Instantiate(sheilderSpriteObj);
+                    break;
+                case "HandPiece_Archer":
+                    Instantiate(archerSpriteObj);
+                    break;
+                case "Hand_WallPiece":
+                    Instantiate(wallSpriteObj);
+                    break;
+            }
+        }
+
+
+        private void HandPieceDestroy()
+        {
+            switch (holdObj.ClickObj.name)
+            {
+                case "HandPiece_Knight":
+                    Debug.Log("ナイトを撃破!!!!");
+                    knightSpriteObj.gameObject.SetActive(false);
+                    break;
+                case "HandPiece_Shielder":
+                    Debug.Log("シールダーを撃破!!!!");
+                    sheilderSpriteObj.gameObject.SetActive(false);
+                    break;
+                case "HandPiece_Archer":
+                    Debug.Log("アーチャーを撃破!!!!");
+                    archerSpriteObj.gameObject.SetActive(false);
+                    break;
+                case "Hand_WallPiece":
+                    Debug.Log("壁を撃破!!!!");
+                    wallSpriteObj.gameObject.SetActive(false);
+                    break;
+            }
+        }
 
     }
 
