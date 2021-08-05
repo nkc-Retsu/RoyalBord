@@ -973,6 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b962e01710d428e4085612b36d13aece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnManager: {fileID: 1257223357}
   gameSetWin: {fileID: 1619609477558967669, guid: 3429e62cd45d8b8449901636f9469db0, type: 3}
   gameSetLose: {fileID: 4346964361329933221, guid: a8fa1e654d9bc004e9ef340b44bdc7cb, type: 3}
 --- !u!1 &331465195
@@ -2817,7 +2818,7 @@ GameObject:
   - component: {fileID: 923968435}
   - component: {fileID: 923968434}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TimerCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3905,9 +3906,11 @@ MonoBehaviour:
   manager: {fileID: 322399613}
   debugFlg: 1
   yourTurnUI: {fileID: 7790338619601803991, guid: 1b5c515611cea9447b8f6517543fd963, type: 3}
+  enemyTurnUI: {fileID: 7790338619601803991, guid: 4bca6d4979df36342aef42af1c26c813, type: 3}
   darkZone: {fileID: 1749560207}
   playerTimeGuage: {fileID: 997466780}
   enemyTimeGuage: {fileID: 559496810}
+  timerCountText: {fileID: 923968435}
 --- !u!4 &1257223358
 Transform:
   m_ObjectHideFlags: 0
@@ -4379,7 +4382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367430007
 GameObject:
@@ -6442,7 +6445,7 @@ Transform:
   m_LocalScale: {x: 5.2, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1934261611
 GameObject:

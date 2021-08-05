@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Turn;
+using Bridge;
 
 namespace Manager
 {
@@ -13,35 +14,45 @@ namespace Manager
         // ƒRƒ}‚ª€‚ñ‚¾”‚ğ‚Á‚Ä‚¢‚é•Ï”(“G)
         public static int enemyLoseCount;
 
-
-        [SerializeField] GameObject gameSetWin;
-        [SerializeField] GameObject gameSetLose;
+        [SerializeField] private TurnManager turnManager;
+        [SerializeField] private GameObject gameSetWin;
+        [SerializeField] private GameObject gameSetLose;
 
         public void GameSet()
         {
             if (enemyLoseCount >= 3)
             {
-                Instantiate(gameSetWin);
-                Debug.Log("Ÿ‚¿!!!!!");
+                GameSetWin();
             }
             else if (playerLoseCount >= 3)
             {
-                Instantiate(gameSetLose);
-                Debug.Log("•‰‚¯!!!!!");
+                GameSetLose();
             }
             else
             {
                 if(TurnManager.playerTurn)
                 {
-                    Instantiate(gameSetLose);
-                    Debug.Log("•‰‚¯!!!!!");
+                    GameSetLose();
                 }
                 else
                 {
-                    Instantiate(gameSetWin);
-                    Debug.Log("Ÿ‚¿!!!!!");
+                    GameSetWin();
                 }
             }
+        }
+
+        public void GameSetWin()
+        {
+            turnManager.GetComponent<IGameSetFlgSettable>().SetGameSetFlg();
+            Instantiate(gameSetWin);
+            Debug.Log("Ÿ‚¿!!!!!");
+        }
+
+        public void GameSetLose()
+        {
+            turnManager.GetComponent<IGameSetFlgSettable>().SetGameSetFlg();
+            Instantiate(gameSetLose);
+            Debug.Log("•‰‚¯!!!!!");
         }
     }
 

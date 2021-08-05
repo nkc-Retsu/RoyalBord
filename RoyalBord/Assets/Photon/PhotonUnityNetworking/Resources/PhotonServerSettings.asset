@@ -39,5 +39,6 @@ MonoBehaviour:
   - RespawnSpaceship
   - SummonBridge
   - TurnChangeRPC
+  - Surrender
   DisableAutoOpenWizard: 1
   ShowSettings: 1

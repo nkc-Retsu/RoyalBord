@@ -9,7 +9,7 @@ using Manager;
 
 namespace Turn
 {
-    public class TurnManager : MonoBehaviourPunCallbacks,ITurnChange
+    public class TurnManager : MonoBehaviourPunCallbacks, ITurnChange, IGameSetFlgSettable
     {
         enum STATE
         {
@@ -24,23 +24,26 @@ namespace Turn
 
         [SerializeField] private bool debugFlg = false;
         [SerializeField] private GameObject yourTurnUI;
+        [SerializeField] private GameObject enemyTurnUI;
         [SerializeField] private GameObject darkZone;
 
         private float playerLimitTime = 60.0f;
         private float enemyLimitTime = 60.0f;
-        [SerializeField] Image playerTimeGuage;
-        [SerializeField] Image enemyTimeGuage;
+        [SerializeField] private Image playerTimeGuage;
+        [SerializeField] private Image enemyTimeGuage;
+        [SerializeField] private Text timerCountText;
 
-        //[SerializeField] private GameObject startSummonArea;
+        private bool gameSetFlg = false;
+        public static bool inputFlg = true;
 
         void Start()
         {
             turnCount = 0;
 
-            if(Matching.hostFlg)
+            if (Matching.hostFlg)
             {
                 playerTurn = Matching.playerTurn;
-                if(!playerTurn)
+                if (!playerTurn)
                 {
                     photonView.RPC(nameof(TurnChangeRPC), RpcTarget.Others);
                 }
@@ -54,19 +57,23 @@ namespace Turn
 
         void Update()
         {
-            if(playerTurn && playerLimitTime>0)
+            if (gameSetFlg) return;
+
+            if (playerTurn && playerLimitTime > 0)
             {
                 playerLimitTime -= Time.deltaTime;
                 playerTimeGuage.fillAmount = playerLimitTime / 60f;
-                if(playerLimitTime<0)
+                timerCountText.text = ((int)playerLimitTime).ToString();
+                if (playerLimitTime < 0)
                 {
                     manager.GetComponent<GameSetManager>().GameSet();
                 }
             }
-            else if(!playerTurn && enemyLimitTime>0)
+            else if (!playerTurn && enemyLimitTime > 0)
             {
                 enemyLimitTime -= Time.deltaTime;
                 enemyTimeGuage.fillAmount = enemyLimitTime / 60f;
+                timerCountText.text = ((int)enemyLimitTime).ToString();
                 if (enemyLimitTime < 0)
                 {
                     manager.GetComponent<GameSetManager>().GameSet();
@@ -79,16 +86,31 @@ namespace Turn
 
         public void TurnChange()
         {
+            StartCoroutine(TurnChangeDelay());
+        }
+
+        IEnumerator TurnChangeDelay()
+        {
+            inputFlg = false;
+            yield return new WaitForSeconds(0.5f);
             photonView.RPC(nameof(TurnChangeRPC), RpcTarget.All);
         }
 
         [PunRPC]
         private void TurnChangeRPC()
         {
+            if (gameSetFlg) return;
+
             playerTurn = (playerTurn == true) ? false : true;
             if (playerTurn)
             {
                 Instantiate(yourTurnUI);
+                inputFlg = true;
+            }
+            else
+            {
+                Instantiate(enemyTurnUI);
+                inputFlg = false;
             }
             turnCount++;
             Debug.Log(turnCount + "É^Å[Éìñ⁄");
@@ -104,12 +126,6 @@ namespace Turn
             enemyLimitTime = 60.0f;
         }
 
-
-        private void StateChange()
-        {
-
-        }
-
         private void TestInputer()
         {
             if (!debugFlg) return;
@@ -120,6 +136,23 @@ namespace Turn
             }
         }
 
+        public void SetGameSetFlg()
+        {
+            gameSetFlg = true;
+        }
 
+        public void SurrenderButton()
+        {
+            photonView.RPC(nameof(Surrender), RpcTarget.Others);
+            manager.GetComponent<GameSetManager>().GameSetLose();
+            SetGameSetFlg();
+        }
+
+        [PunRPC]
+        private void Surrender()
+        {
+            manager.GetComponent<GameSetManager>().GameSetWin();
+            SetGameSetFlg();
+        }
     }
 }
