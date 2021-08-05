@@ -39,7 +39,7 @@ namespace Turn
         [SerializeField] private GameObject enemyThinkingIcon;
 
         private bool gameSetFlg = false;
-        public static bool inputFlg = true;
+        public static bool inputFlg = false;
 
         void Start()
         {
@@ -59,7 +59,11 @@ namespace Turn
 
             Debug.Log(playerTurn);
 
-            if (playerTurn) Instantiate(yourTurnUI);
+            if (playerTurn)
+            {
+                Instantiate(yourTurnUI);
+                inputFlg = true;
+            } 
             else darkZone.transform.localEulerAngles = new Vector3(0, 0, 180);
         }
 
