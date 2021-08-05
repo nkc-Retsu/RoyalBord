@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Bridge;
 using Photon.Pun;
 using Photon.Realtime;
+using Manager;
 
 namespace Turn
 {
@@ -18,9 +20,16 @@ namespace Turn
         public static bool playerTurn = false;
         public static int turnCount = 0;
 
+        [SerializeField] private GameObject manager;
+
         [SerializeField] private bool debugFlg = false;
         [SerializeField] private GameObject yourTurnUI;
         [SerializeField] private GameObject darkZone;
+
+        private float playerLimitTime = 60.0f;
+        private float enemyLimitTime = 60.0f;
+        [SerializeField] Image playerTimeGuage;
+        [SerializeField] Image enemyTimeGuage;
 
         //[SerializeField] private GameObject startSummonArea;
 
@@ -45,6 +54,25 @@ namespace Turn
 
         void Update()
         {
+            if(playerTurn && playerLimitTime>0)
+            {
+                playerLimitTime -= Time.deltaTime;
+                playerTimeGuage.fillAmount = playerLimitTime / 60f;
+                if(playerLimitTime<0)
+                {
+                    manager.GetComponent<GameSetManager>().GameSet();
+                }
+            }
+            else if(!playerTurn && enemyLimitTime>0)
+            {
+                enemyLimitTime -= Time.deltaTime;
+                enemyTimeGuage.fillAmount = enemyLimitTime / 60f;
+                if (enemyLimitTime < 0)
+                {
+                    manager.GetComponent<GameSetManager>().GameSet();
+                }
+            }
+
             TestInputer();
         }
 
@@ -71,6 +99,9 @@ namespace Turn
             {
                 darkZone.SetActive(false);
             }
+
+            playerLimitTime = 60.0f;
+            enemyLimitTime = 60.0f;
         }
 
 

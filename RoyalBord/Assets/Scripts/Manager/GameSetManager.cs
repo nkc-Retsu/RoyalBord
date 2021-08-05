@@ -19,13 +19,28 @@ namespace Manager
 
         public void GameSet()
         {
-            if (TurnManager.playerTurn)
+            if (enemyLoseCount >= 3)
             {
                 Instantiate(gameSetWin);
+                Debug.Log("Ÿ‚¿!!!!!");
+            }
+            else if (playerLoseCount >= 3)
+            {
+                Instantiate(gameSetLose);
+                Debug.Log("•‰‚¯!!!!!");
             }
             else
             {
-                Instantiate(gameSetLose);
+                if(TurnManager.playerTurn)
+                {
+                    Instantiate(gameSetLose);
+                    Debug.Log("•‰‚¯!!!!!");
+                }
+                else
+                {
+                    Instantiate(gameSetWin);
+                    Debug.Log("Ÿ‚¿!!!!!");
+                }
             }
         }
     }
