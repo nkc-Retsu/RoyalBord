@@ -199,7 +199,8 @@ namespace Piece
 
                     // それ以外
                     default:
-                        pieceDamageSE.DamagedSE_Wall(); // SE再生
+                        pieceDamageSE.DamagedSE_Wall();       // SE再生
+                        pieceEffectDirector.EffectGenerator();// エフェクト生成
                         pieceDead.Dead();
                         Debug.Log("それ以外");
                         break;
