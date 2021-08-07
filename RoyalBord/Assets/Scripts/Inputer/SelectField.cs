@@ -12,6 +12,14 @@ namespace Inputer
     {
         // フィールド情報を取得する処理
 
+        [SerializeField] private GameObject knightSpriteObj;
+        [SerializeField] private GameObject sheilderSpriteObj;
+        [SerializeField] private GameObject archerSpriteObj;
+        [SerializeField] private GameObject wallSpriteObj;
+
+        private GameObject cursurObj;
+
+
         // オブジェクト取得用変数
         private GameObject clickedObj;
         public GameObject ClickObj
@@ -28,11 +36,11 @@ namespace Inputer
 
 
         // クラス変数
-        private SendData sendData;
-        private HoldObj holdObj;
-        private GameObject pieceChild;
+        private SendData      sendData;
+        private HoldObj       holdObj;
+        private GameObject    pieceChild;
         private HandPieceCore handPieceCore;
-        private GameObject MousehandPiece;
+        private GameObject    MousehandPiece;
 
 
         // 選択可能フラグ
@@ -51,7 +59,7 @@ namespace Inputer
         void Update()
         {
             // 入力受付
-            if (!TurnManager.playerTurn) return;
+            if (!TurnManager.inputFlg) return;
 
             // メソッド呼び出し
             InputClick();
@@ -67,21 +75,19 @@ namespace Inputer
             {
                 if (ClickLeft())
                 {
+                    Debug.Log("2回目");
+
 
                     // キャラ選択 or フィールド選択
                     SelectObj();
 
+                    HandPieceDestroy();
+
+                    // 1回目の選択が味方のコマの場合
                     if (holdObj.ClickObj.gameObject.tag == "PlayerPiece")
                     {
-                        if (ClickObj.gameObject.tag == "Field" || ClickObj.gameObject.tag == "EnemyPiece")
-                        {
-                            // 矢印のオブジェクトを取得
-                            pieceChild = holdObj.ClickObj.transform.GetChild(0).gameObject;
-
-                            // 矢印の表示を消す
-                            pieceChild.gameObject.SetActive(false);
-
-                        }
+                        // コマの矢印を非表示
+                        pieceChild.gameObject.SetActive(false);
                     }
 
                     // 何も取得していない時は早期リターン
@@ -104,6 +110,7 @@ namespace Inputer
                         // 1回目の選択に戻す
                         selecrFlg = false;
                     }
+              
 
                     // フラグを変更
                     selecrFlg = false;
@@ -118,8 +125,13 @@ namespace Inputer
             {
                 if (ClickLeft())
                 {
+
+                    Debug.Log("1回目");
+
                     // キャラ選択
                     holdObj.SelectObj();
+
+                    HandPieceGenerator();
 
                     // 何も取得していない時 + Fieldを選択したら早期リターン
                     if (holdObj.ClickObj == null || holdObj.ClickObj.gameObject.tag == "Field") return;
@@ -130,11 +142,6 @@ namespace Inputer
 
                         // 矢印の表示
                         pieceChild.gameObject.SetActive(true);
-                    }
-                    else if (holdObj.gameObject.tag == "HandPiece")
-                    {
-                        //handPieceCore = holdObj.GetComponent<HandPieceCore>();
-                        //MousehandPiece = holdObj.ClickObj; 
                     }
 
                     // フラグを変更
@@ -164,8 +171,6 @@ namespace Inputer
                 // 何も取得していない時は早期リターン
                 if (clickedObj == null) return;
 
-                // 名前を表示
-                Debug.Log("select2 " + clickedObj);
             }
 
         }
@@ -177,6 +182,61 @@ namespace Inputer
             return Input.GetMouseButtonDown(0);
         }
 
+
+
+        // 手札をクリックした時にカーソルに追従するオブジェクトを生成する処理
+        private void HandPieceGenerator()
+        {
+            switch (holdObj.ClickObj.name)
+            {
+                case "HandPiece_Knight":
+                    cursurObj = Instantiate(knightSpriteObj);
+                    break;
+                case "HandPiece_Shielder":
+                    cursurObj = Instantiate(sheilderSpriteObj);
+                    break;
+                case "HandPiece_Archer":
+                    cursurObj = Instantiate(archerSpriteObj);
+                    break;
+                case "Hand_WallPiece":
+                    cursurObj = Instantiate(wallSpriteObj);
+                    break;
+                case "Hand_WallPiece (1)":
+                    cursurObj = Instantiate(wallSpriteObj);
+                    break;
+                case "Hand_WallPiece (2)":
+                    cursurObj = Instantiate(wallSpriteObj);
+                    break;
+
+            }
+        }
+
+
+        private void HandPieceDestroy()
+        {
+            switch (holdObj.ClickObj.name)
+            {
+                case "HandPiece_Knight":
+                    cursurObj.gameObject.SetActive(false);
+                    break;
+                case "HandPiece_Shielder":
+                    cursurObj.gameObject.SetActive(false);
+                    break;
+                case "HandPiece_Archer":
+                    cursurObj.gameObject.SetActive(false);
+                    break;
+                case "Hand_WallPiece":
+                    cursurObj.gameObject.SetActive(false);
+                    break;
+                case "Hand_WallPiece (1)":
+                    cursurObj.gameObject.SetActive(false);
+                    break;
+                case "Hand_WallPiece (2)":
+                    cursurObj.gameObject.SetActive(false);
+                    break;
+
+            }
+        }
 
     }
 

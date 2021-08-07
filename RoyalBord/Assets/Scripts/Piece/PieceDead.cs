@@ -12,8 +12,6 @@ namespace Piece
         // クラス変数
         private SpriteRenderer sr;
 
-        private float time = 0;
-
         private void Start()
         {
             // コンポーネント取得
@@ -22,7 +20,6 @@ namespace Piece
 
         private void Update()
         {
-            time += Time.deltaTime;
         }
 
 
@@ -31,6 +28,8 @@ namespace Piece
         {
             Debug.Log(gameObject + "が死んだ!!!");
 
+            sr.material.color = sr.material.color - new Color32(0,0,0,0);
+
             // コルーチン呼び出し
             StartCoroutine("FadeClear");
         }
@@ -38,16 +37,16 @@ namespace Piece
         // 透明にする処理
         IEnumerator FadeClear()
         {
-            time = 0f;
-
-            // フェードで消える
-            if (sr.color.a <= 0f) sr.color -= new Color(0,0,0,-1);
-
-            // 2秒待つ　(こうすると結局消えるから意味なし？)
-            yield return new WaitForSeconds(0.5f);
+            for(int i = 0; i < 255; ++i)
+            {
+                sr.material.color = sr.material.color - new Color32(0,0,0,1);
+                
+                // 0.01秒待つ
+                yield return new WaitForSeconds(0.00001f);
+            }
 
             // GameObjectのsetActiveを消す
-            gameObject.SetActive(false); 
+            gameObject.SetActive(false);
         }
     }
 }

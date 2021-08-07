@@ -4,6 +4,7 @@ using UnityEngine;
 using Bridge;
 using Photon.Pun;
 using Photon.Realtime;
+using Turn;
 
 
 namespace Manager
@@ -58,6 +59,7 @@ namespace Manager
                 //SummonBridge(pieceType,pos2_x,pos2_y);
             }
 
+            if (TurnManager.turnCount < 2) return;
 
             if (selectObj1.tag == "PlayerPiece")
             {
@@ -78,6 +80,7 @@ namespace Manager
                     Debug.Log(attackAreaArr);
                     if (AreaCheck(attackAreaArr, pos1, pos2))
                     {
+                        Debug.Log("UŒ‚‚µ‚Ü‚·‚æ`");
                         photonView.RPC(nameof(AttackBridge), RpcTarget.Others, 4-pos1_x, 4-pos1_y, 4-pos2_x, 4-pos2_y);
                         attack.AttackAction(selectObj1, selectObj2);
                     }

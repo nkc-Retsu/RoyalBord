@@ -59,9 +59,6 @@ namespace Inputer
 
                 // 何も取得していない時 + Fieldを選択したら早期リターン
                 if (ClickObj == null || clickedObj.gameObject.tag == "Field") return;
-
-                // 名前を表示
-                Debug.Log("select1 " + clickedObj);
             }
         }
 

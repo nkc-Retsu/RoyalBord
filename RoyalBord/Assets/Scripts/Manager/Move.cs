@@ -11,6 +11,9 @@ public class Move : MonoBehaviour
     private IMove iMove;
 
     [SerializeField] private GameObject turnManager;
+    [SerializeField] private AudioClip moveSE;
+
+    private AudioSource audioSource;
     private ITurnChange iTurnChange;
 
 
@@ -20,12 +23,14 @@ public class Move : MonoBehaviour
     void Start()
     {
         //iMove = GetComponent<IMove>();
+        audioSource = GetComponent<AudioSource>();
         iTurnChange = turnManager.GetComponent<ITurnChange>();
     }
 
     public void MoveAction(GameObject selectObj1,GameObject selectObj2)
     {
         Debug.Log("ˆÚ“®");
+        audioSource.PlayOneShot(moveSE);
 
         Vector2 beforePos = selectObj2.GetComponent<IGetPos>().GetPos();
         Vector2 afterPos = selectObj2.GetComponent<IGetPos>().GetPos();
