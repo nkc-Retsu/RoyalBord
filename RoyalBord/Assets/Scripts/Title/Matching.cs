@@ -13,8 +13,16 @@ public class Matching : MonoBehaviourPunCallbacks
 
     [SerializeField] private GameObject waitingUI;
     [SerializeField] private Text waitingText;
+    [SerializeField] private GameObject failedUI;
+    [SerializeField] private Text failedText;
 
     [SerializeField] private GameObject cloud;
+
+    [SerializeField] private InputField inputName;
+    [SerializeField] private InputField inputIP;
+    [SerializeField] private InputField inputRoomID;
+    [SerializeField] private Button createButtonUI;
+    [SerializeField] private Button joinButtonUI;
 
     private bool matchFlg = false;
     public static string playerName;
@@ -66,6 +74,9 @@ public class Matching : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.Log("Ú‘±¸”s");
+        waitingUI.SetActive(false);
+        failedUI.SetActive(true);
+        failedText.text = "Ú‘±‚É¸”s‚µ‚Ü‚µ‚½";
     }
 
     public override void OnCreatedRoom()
@@ -77,6 +88,9 @@ public class Matching : MonoBehaviourPunCallbacks
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("ƒ‹[ƒ€ì¬¸”s");
+        waitingUI.SetActive(false);
+        failedUI.SetActive(true);
+        failedText.text = "ƒ‹[ƒ€‚Ìì¬‚É¸”s‚µ‚Ü‚µ‚½";
     }
 
     public override void OnJoinedRoom()
@@ -100,10 +114,14 @@ public class Matching : MonoBehaviourPunCallbacks
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         Debug.Log("ƒ‹[ƒ€Q‰Á¸”s");
+        waitingUI.SetActive(false);
+        failedUI.SetActive(true);
+        failedText.text = "ƒ‹[ƒ€‚ÌQ‰Á‚É¸”s‚µ‚Ü‚µ‚½";
     }
 
     IEnumerator ConnectWaiting(bool isCreate)
     {
+        TouchUIActive(false);
         waitingUI.SetActive(true);
         waitingText.text = "Ú‘±’†";
 
@@ -124,7 +142,17 @@ public class Matching : MonoBehaviourPunCallbacks
 
     }
 
-    [PunRPC]
+    public void TouchUIActive(bool isActive)
+    {
+        inputName.interactable = isActive;
+        inputIP.interactable = isActive;
+        inputRoomID.interactable = isActive;
+        createButtonUI.interactable = isActive;
+        joinButtonUI.interactable = isActive;
+    }
+
+
+[PunRPC]
     private void GameStart()
     {
         cloud.SetActive(true);

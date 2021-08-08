@@ -38,6 +38,8 @@ namespace Turn
         [SerializeField] private GameObject playerThinkingIcon;
         [SerializeField] private GameObject enemyThinkingIcon;
 
+        [SerializeField] private GameObject surrenderUI;
+
         private bool gameSetFlg = false;
         public static bool inputFlg = false;
 
@@ -147,6 +149,8 @@ namespace Turn
 
             playerLimitTime = 60.0f;
             enemyLimitTime = 60.0f;
+            playerTimeGuage.fillAmount = playerLimitTime / 60f;
+            enemyTimeGuage.fillAmount = enemyLimitTime / 60f;
         }
 
         private void TestInputer()
@@ -166,8 +170,17 @@ namespace Turn
 
         public void SurrenderButton()
         {
-            if (gameSetFlg) return;
+            surrenderUI.SetActive(true);
+        }
+        public void SurrenderButtonNo()
+        {
+            surrenderUI.SetActive(false);
+        }
 
+        public void SurrenderButtonYes()
+        {
+            if (gameSetFlg) return;
+            surrenderUI.SetActive(false);
             photonView.RPC(nameof(Surrender), RpcTarget.Others);
             manager.GetComponent<GameSetManager>().GameSetLose();
             SetGameSetFlg();
