@@ -54,7 +54,6 @@ namespace Turn
                 if (!playerTurn)
                 {
                     photonView.RPC(nameof(firstTurnSwitch), RpcTarget.Others);
-                    Instantiate(enemyTurnUI);
                     playerThinkingIcon.SetActive(false);
                     enemyThinkingIcon.SetActive(true);
                     inputFlg = false;
@@ -68,7 +67,11 @@ namespace Turn
                 Instantiate(yourTurnUI);
                 inputFlg = true;
             }
-            else darkZone.transform.localEulerAngles = new Vector3(0, 0, 180);
+            else
+            {
+                darkZone.transform.localEulerAngles = new Vector3(0, 0, 180);
+                Instantiate(enemyTurnUI);
+            }
         }
 
         void Update()
