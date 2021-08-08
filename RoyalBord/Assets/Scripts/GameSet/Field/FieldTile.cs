@@ -9,6 +9,8 @@ public class FieldTile : MonoBehaviour,IGetPos
 
     [SerializeField] Vector2 pos;
 
+    private bool colorFlg = true;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -22,12 +24,31 @@ public class FieldTile : MonoBehaviour,IGetPos
 
     private void OnMouseEnter()
     {
-        sr.color = new Color32(255, 255, 255, 150);
+        if(colorFlg) sr.color = new Color32(255, 255, 255, 150);
     }
 
     private void OnMouseExit()
     {
-        sr.color = new Color32(0, 0, 0, 0);
+        if (colorFlg) sr.color = new Color32(0, 0, 0, 0);
     }
 
+    private void ColorRedField()
+    {
+        sr.color = new Color32(255, 0, 0, 160);
+    } 
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "AttackZone")
+        {
+            ColorRedField();
+            colorFlg = false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        OnMouseExit();
+        colorFlg = true;
+    }
 }

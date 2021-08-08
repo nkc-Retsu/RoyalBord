@@ -38,7 +38,8 @@ namespace Inputer
         // クラス変数
         private SendData      sendData;
         private HoldObj       holdObj;
-        private GameObject    pieceChild;
+        private GameObject    pieceChild_Move;
+        private GameObject    pieceChild_Attack;
         private HandPieceCore handPieceCore;
         private GameObject    MousehandPiece;
 
@@ -87,7 +88,8 @@ namespace Inputer
                     if (holdObj.ClickObj.gameObject.tag == "PlayerPiece")
                     {
                         // コマの矢印を非表示
-                        pieceChild.gameObject.SetActive(false);
+                        pieceChild_Move.gameObject.SetActive(false);
+                        pieceChild_Attack.gameObject.SetActive(false);
                     }
 
                     // 何も取得していない時は早期リターン
@@ -101,7 +103,8 @@ namespace Inputer
                         if (clickedObj.gameObject.tag == "HandPiece") return;
 
                         // 矢印の表示を消す
-                        pieceChild.gameObject.SetActive(false);
+                        pieceChild_Move.gameObject.SetActive(false);
+                        pieceChild_Attack.gameObject.SetActive(false);
 
                         // 取得したオブジェクトの中身を空にする
                         clickedObj = null;
@@ -138,10 +141,12 @@ namespace Inputer
                     else if (holdObj.ClickObj.gameObject.tag == "PlayerPiece")
                     {
                         // 矢印のオブジェクトを取得
-                        pieceChild = holdObj.ClickObj.transform.GetChild(0).gameObject;
+                        pieceChild_Move = holdObj.ClickObj.transform.GetChild(0).gameObject;
+                        pieceChild_Attack = holdObj.ClickObj.transform.GetChild(1).gameObject;
 
                         // 矢印の表示
-                        pieceChild.gameObject.SetActive(true);
+                        pieceChild_Move.gameObject.SetActive(true);
+                        pieceChild_Attack.gameObject.SetActive(true);
                     }
 
                     // フラグを変更

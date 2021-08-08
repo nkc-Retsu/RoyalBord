@@ -454,6 +454,7 @@ namespace Piece
 
                 case 3:
                     return pieceAttackArea.AttackAreaKnight;
+
                 default:
                     return null;
             }
