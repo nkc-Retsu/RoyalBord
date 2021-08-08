@@ -436,6 +436,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7917967525204659928}
     m_Modifications:
+    - target: {fileID: 1476826446322896348, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476826446322896348, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322402349990949815, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322402349990949815, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919946532498130116, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2919946532498130116, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.002
+      objectReference: {fileID: 0}
     - target: {fileID: 3258931993637723392, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
       propertyPath: m_Name
       value: attackZone_Archer
@@ -443,6 +467,14 @@ PrefabInstance:
     - target: {fileID: 3258931993637723392, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034038876488687270, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034038876488687270, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 7220404441494942843, guid: 8ffe26f3865701646900c74d0cf3346f, type: 3}
       propertyPath: m_RootOrder

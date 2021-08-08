@@ -48,7 +48,7 @@ public class FieldTile : MonoBehaviour,IGetPos
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        OnMouseExit();
         colorFlg = true;
+        OnMouseExit();
     }
 }

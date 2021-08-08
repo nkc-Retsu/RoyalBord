@@ -55,10 +55,17 @@ namespace Turn
                 playerTurn = Matching.playerTurn;
                 if (!playerTurn)
                 {
-                    photonView.RPC(nameof(firstTurnSwitch), RpcTarget.Others);
+                    Instantiate(enemyTurnUI);
+
+                    photonView.RPC(nameof(FirstTurnSwitch), RpcTarget.Others);
                     playerThinkingIcon.SetActive(false);
                     enemyThinkingIcon.SetActive(true);
                     inputFlg = false;
+                }
+                else
+                {
+                    Instantiate(yourTurnUI);
+                    photonView.RPC(nameof(EnemyTurnUIInstance), RpcTarget.Others);
                 }
             }
 
@@ -66,13 +73,11 @@ namespace Turn
 
             if (playerTurn)
             {
-                Instantiate(yourTurnUI);
                 inputFlg = true;
             }
             else
             {
                 darkZone.transform.localEulerAngles = new Vector3(0, 0, 180);
-                Instantiate(enemyTurnUI);
             }
         }
 
@@ -194,7 +199,7 @@ namespace Turn
         }
 
         [PunRPC]
-        private void firstTurnSwitch()
+        private void FirstTurnSwitch()
         {
             playerTurn = true;
             Instantiate(yourTurnUI);
@@ -202,6 +207,12 @@ namespace Turn
             enemyThinkingIcon.SetActive(false);
             inputFlg = true;
             darkZone.transform.localEulerAngles += new Vector3(0, 0, 180);
+        }
+
+        [PunRPC]
+        private void EnemyTurnUIInstance()
+        {
+            Instantiate(enemyTurnUI);
         }
     }
 }
