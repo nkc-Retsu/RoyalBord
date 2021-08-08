@@ -112,11 +112,15 @@ namespace Inputer
 
                         // 1回目の選択に戻す
                         selecrFlg = false;
+
+                        return;
                     }
               
 
                     // フラグを変更
                     selecrFlg = false;
+
+                    
 
                     // 情報を送る
                     sendData.Send(holdObj.ClickObj, ClickObj);
