@@ -11,11 +11,13 @@ namespace Piece
 
         // クラス変数
         private SpriteRenderer sr;
+        private BoxCollider2D col;
 
         private void Start()
         {
             // コンポーネント取得
-            sr = GetComponent<SpriteRenderer>();
+            sr  = GetComponent<SpriteRenderer>();
+            col = GetComponent<BoxCollider2D>();
         }
 
         private void Update()
@@ -26,6 +28,8 @@ namespace Piece
         public void Dead()
         {
             sr.material.color = sr.material.color - new Color32(0, 0, 0, 0);
+
+            col.enabled = false;
 
             // コルーチン呼び出し
             StartCoroutine("FadeClear");
