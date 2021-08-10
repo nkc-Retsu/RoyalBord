@@ -19,11 +19,7 @@ MonoBehaviour:
     AppVersion: 
     UseNameServer: 0
     FixedRegion: 
-<<<<<<< HEAD
-    Server: 192.168.10.103
-=======
-    Server: 192.168.0.6
->>>>>>> 4b8ea8fadf354f38e12bdaeb4796629492b2f9c0
+    Server: 192.168.11.20
     Port: 5055
     Protocol: 0
     EnableLobbyStatistics: 0
@@ -33,19 +29,18 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
-  - AttackBridge
   - ClickRpc
   - DestroyRpc
   - DestroySpaceship
   - Fire
-  - firstTurnSwitch
+  - RespawnSpaceship
+  - AttackBridge
+  - EnemyTurnUIInstance
+  - FirstTurnSwitch
   - GameStart
   - MoveBridge
-  - RespawnSpaceship
   - SummonBridge
   - Surrender
   - TurnChangeRPC
-  - EnemyTurnUIInstance
-  - FirstTurnSwitch
   DisableAutoOpenWizard: 1
   ShowSettings: 1

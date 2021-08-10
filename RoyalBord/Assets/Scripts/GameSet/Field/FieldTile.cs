@@ -50,9 +50,5 @@ public class FieldTile : MonoBehaviour,IGetPos
     {
         colorFlg = true;
         OnMouseExit();
-<<<<<<< HEAD
-        
-=======
->>>>>>> 4b8ea8fadf354f38e12bdaeb4796629492b2f9c0
     }
 }
