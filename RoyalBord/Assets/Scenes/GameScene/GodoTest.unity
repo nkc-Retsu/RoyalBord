@@ -1788,6 +1788,10 @@ PrefabInstance:
       propertyPath: nextSceneName
       value: TitleScene
       objectReference: {fileID: 0}
+    - target: {fileID: 8774110585997114912, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
+      propertyPath: nextIsAnotherBGMScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8774110585997114915, guid: e1c9caa9da29a5b498cd7860ad8464e6, type: 3}
       propertyPath: m_Name
       value: FadeCloud
