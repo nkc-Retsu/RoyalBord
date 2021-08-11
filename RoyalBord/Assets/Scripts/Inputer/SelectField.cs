@@ -78,16 +78,16 @@ namespace Inputer
                 {
                     Debug.Log("2回目");
 
-
                     // キャラ選択 or フィールド選択
                     SelectObj();
 
+                    Debug.Log("追跡手札非表示");
                     HandPieceDestroy();
 
                     // 1回目の選択が味方のコマの場合
                     if (holdObj.ClickObj.gameObject.tag == "PlayerPiece")
                     {
-                        // コマの矢印を非表示
+                        // コマの矢印と攻撃範囲を非表示
                         pieceChild_Move.gameObject.SetActive(false);
                         pieceChild_Attack.gameObject.SetActive(false);
                     }
@@ -100,7 +100,13 @@ namespace Inputer
                     // 同じ駒を選択した場合は選択解除
                     else if (clickedObj == holdObj.ClickObj)
                     {
-                        if (clickedObj.gameObject.tag == "HandPiece") return;
+                        if (clickedObj.gameObject.tag == "HandPiece")
+                        {
+                            // 1回目の選択に戻す
+                            selecrFlg = false;
+
+                            return;
+                        }
 
                         // 矢印の表示を消す
                         pieceChild_Move.gameObject.SetActive(false);
@@ -119,9 +125,7 @@ namespace Inputer
 
                     // フラグを変更
                     selecrFlg = false;
-
                     
-
                     // 情報を送る
                     sendData.Send(holdObj.ClickObj, ClickObj);
 
@@ -138,6 +142,7 @@ namespace Inputer
                     // キャラ選択
                     holdObj.SelectObj();
 
+                    Debug.Log("追跡手札表示");
                     HandPieceGenerator();
 
                     // 何も取得していない時 + Fieldを選択したら早期リターン
