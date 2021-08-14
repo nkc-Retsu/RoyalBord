@@ -41,7 +41,7 @@ namespace Piece
 
             for (int i = 0; i < 255; ++i)
             {
-                sr.material.color = sr.material.color - new Color32(0, 0, 0, 1);
+                sr.material.color = sr.material.color - new Color32(0, 0, 0, 5);
 
                 // 0.01•b‘Ò‚Â
                 yield return new WaitForSeconds(0.00001f);
